@@ -39,8 +39,7 @@ equation
           13.5168}}));
   annotation(experiment(
       StopTime=0.6,
-      __Dymola_NumberOfIntervals=800,
+      Intervals=800,
       Tolerance=1e-08),                                                         uses(
         Modelica(version="3.2.1")));
 end Karosserie1F;
-

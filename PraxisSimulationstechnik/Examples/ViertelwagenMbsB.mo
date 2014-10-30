@@ -56,7 +56,7 @@ equation
           -47.2593},{3.9886,-47.2593},{3.9886,-39.0655},{4.2735,-39.0655}}));
   annotation(experiment(
       StopTime=0.5,
-      __Dymola_NumberOfIntervals=800,
+      Intervals=800,
       Tolerance=1e-06),                                                         uses(
         Modelica(version="3.2.1")));
 end ViertelwagenMbsB;

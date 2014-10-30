@@ -37,8 +37,7 @@ equation
       smooth=Smooth.None));
   annotation(experiment(
       StopTime=10,
-      __Dymola_NumberOfIntervals=2000,
+      Intervals=2000,
       Tolerance=1e-06),
     uses(Modelica(version="3.2.1")));
 end Zweiachsenroboter3;
-
