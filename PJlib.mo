@@ -2606,7 +2606,6 @@ package PJlib
 
       end for;
       y = if not allowOutOfRange or index > 0 and index <= nin then k * u else outOfRangeValue;
-      annotation(Icon);
     end Extractor;
 
     model OttoSteuerung
