@@ -18,6 +18,6 @@ equation
   connect(constantcurrent1.p,ground1.p) annotation(Line(points={{-58.9744,
           6.5242},{-58.6895,6.5242},{-58.6895,-8.5128},{-59.2593,-8.5128}}));
   annotation(experiment(StartTime = 0, StopTime = 10, Tolerance = 0.000001), uses(
-        Modelica(version="3.2")));
+        Modelica(version="3.2.1")));
 end EMotor1;
 

@@ -30,6 +30,6 @@ equation
   connect(convection1.fluid,thermalconductor1.port_a) annotation(Line(points = {{-41.2878,28.5},{-41.1367,28.5},{-41.1367,18},{-41.0755,18}}));
   connect(heatcapacitor1.port,convection1.solid) annotation(Line(points = {{-41,67.5},{-41,58},{-41.2878,58},{-41.2878,58.5}}));
   annotation(experiment(StartTime = 0.0, StopTime = 20.0, Tolerance = 1e-06), uses(
-        Modelica(version="3.2")));
+        Modelica(version="3.2.1")));
 end HeatTransfer1;
 

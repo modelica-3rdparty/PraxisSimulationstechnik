@@ -16,6 +16,6 @@ equation
           5.53237},{30.6007,5.53237},{30.6007,6.03237},{30.6007,6.03237}}));
   connect(clutch1.flange_b,inertia2.flange_a) annotation(Line(points = {{60.6007,6.03237},{70.6007,6.03237},{70.6007,6.53237},{70.1007,6.53237}}));
   annotation(experiment(StartTime = 0.0, StopTime = 15.0, Tolerance = 0.000001), uses(
-        Modelica(version="3.2")));
+        Modelica(version="3.2.1")));
 end Kupplung;
 

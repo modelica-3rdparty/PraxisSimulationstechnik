@@ -10,6 +10,6 @@ equation
   connect(spring1.flange_b,spring2.flange_a) annotation(Line(points = {{-14.1871,7.19424},{-4.2796,7.19424},{-4.2796,7.13267},{-4.29672,7.13267}}));
   connect(mass1.flange_b,spring1.flange_a) annotation(Line(points = {{-51.5,7.5},{-37.6978,7.5},{-37.6978,7.19424},{-38.1871,7.19424}}));
   annotation(experiment(StartTime = 0.0, StopTime = 10, Tolerance = 0.000001), uses(
-        Modelica(version="3.2")));
+        Modelica(version="3.2.1")));
 end FederKopplung;
 

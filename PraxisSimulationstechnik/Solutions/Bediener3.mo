@@ -48,6 +48,6 @@ equation
           4.54389}}));
   connect(Weg1.outflow,Eingangslager.inflow) annotation(Line(points = {{-60.6797,75.7881},{-53.7164,75.7881},{-53.7164,75.343},{-53.9394,75.343}}));
   annotation(experiment(StartTime = 0.0, StopTime = 25.0, Tolerance = 1e-06), uses(
-        Modelica(version="3.2")));
+        Modelica(version="3.2.1")));
 end Bediener3;
 

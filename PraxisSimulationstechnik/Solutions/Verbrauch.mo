@@ -122,5 +122,5 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   annotation(                        experiment(StopTime=35, Tolerance=1e-06),
-    uses(Modelica(version="3.2")));
+    uses(Modelica(version="3.2.1")));
 end Verbrauch;

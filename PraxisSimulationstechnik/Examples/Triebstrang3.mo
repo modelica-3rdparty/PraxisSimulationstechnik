@@ -54,5 +54,5 @@ equation
       color={0,0,0},
       smooth=Smooth.None));
   annotation(                        experiment(StartTime = 0.0, StopTime = 10.0, Tolerance = 1e-06),
-    uses(Modelica(version="3.2")));
+    uses(Modelica(version="3.2.1")));
 end Triebstrang3;

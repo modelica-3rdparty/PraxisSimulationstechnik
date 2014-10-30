@@ -41,6 +41,6 @@ equation
           -71.5961,19.9795},{-63.9708,19.9795},{-63.9708,20.3277},{-64.2279,
           20.3277}}));
   annotation(experiment(StartTime = 0.0, StopTime = 30.0, Tolerance = 0.000001), uses(
-        Modelica(version="3.2")));
+        Modelica(version="3.2.1")));
 end HeatTransfer3B;
 

@@ -9,6 +9,6 @@ equation
   connect(spring1.flange_b,fixed1.flange) annotation(Line(points = {{50.8489,6.33094},{69.6403,6.33094},{69.6403,6.71223},{69.0755,6.71223}}));
   connect(mass1.flange_b,spring1.flange_a) annotation(Line(points = {{10.5,6.5},{26.7626,6.5},{26.7626,6.33094},{26.8489,6.33094}}));
   annotation(experiment(StartTime = 0.0, StopTime = 40.0, Tolerance = 0.000001), uses(
-        Modelica(version="3.2")));
+        Modelica(version="3.2.1")));
 end MassenKopplung;
 

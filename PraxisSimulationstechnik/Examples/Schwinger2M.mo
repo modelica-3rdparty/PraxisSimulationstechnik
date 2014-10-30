@@ -19,6 +19,6 @@ equation
           -26.9606,8.24881},{-16.9606,8.24881},{-16.9606,8.24881},{-17.4606,
           8.24881}}));
   annotation(experiment(StartTime = 0.0, StopTime = 25, Tolerance = 0.000001),
-    uses(Modelica(version="3.2")));
+    uses(Modelica(version="3.2.1")));
 end Schwinger2M;
 
