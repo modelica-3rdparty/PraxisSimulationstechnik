@@ -1391,7 +1391,7 @@ package PJlib
     model Fahrer2
       parameter Real ts = 1 "Schaltzeit";
       parameter Real ns = 6500 "Schaltdrehzahl [Upm]";
-      parameter Real Ng = 5 "Anzahl der G㭧e";
+      parameter Real Ng = 5 "Anzahl der Gänge";
       parameter Real p = 1 "Dauergas-Wert";
       Modelica.Blocks.Interfaces.RealOutput y annotation(Placement(transformation(origin = {100,0}, extent = {{-12,-12},{12,12}}), iconTransformation(origin = {100,0}, extent = {{-12,-12},{12,12}})));
       Modelica.Blocks.Interfaces.RealOutput realoutput1 annotation(Placement(transformation(origin={100,
