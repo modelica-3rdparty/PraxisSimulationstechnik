@@ -1391,7 +1391,7 @@ package PJlib
     model Fahrer2
       parameter Real ts = 1 "Schaltzeit";
       parameter Real ns = 6500 "Schaltdrehzahl [Upm]";
-      parameter Real Ng = 5 "Anzahl der Gänge";
+      parameter Real Ng = 5 "Anzahl der Gã­§e";
       parameter Real p = 1 "Dauergas-Wert";
       Modelica.Blocks.Interfaces.RealOutput y annotation(Placement(transformation(origin = {100,0}, extent = {{-12,-12},{12,12}}), iconTransformation(origin = {100,0}, extent = {{-12,-12},{12,12}})));
       Modelica.Blocks.Interfaces.RealOutput realoutput1 annotation(Placement(transformation(origin={100,
@@ -2887,6 +2887,6 @@ package PJlib
       annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent = {{-100,-100},{100,100}}),Text(extent = {{-90,-40},{90,40}}, textString = "eta", fontName = "Times New Roman")}));
     end Efficiency;
   end Kap18;
-  annotation (uses(Modelica(version="3.2.1")));
+  annotation (uses(Modelica(version="3.2.1"), SystemDynamics, Thermo));
 end PJlib;
 
