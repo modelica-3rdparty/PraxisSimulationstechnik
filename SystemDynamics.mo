@@ -1,146 +1,157 @@
 within ;
-package SystemDynamics
+package SystemDynamics "Simple system dynamics library"
 
 package Interfaces
 
-  connector MassPort
+  connector MassPortR "mass port of reservoirs"
     flow Real dm;
-    Integer info; // signals special behaviour of a stock
-                  //   0: standard, Flow defines arbitrary dm
-                  //   1: stock takes/delivers fixed amount, Flow sets dm = data
-                  //      includes the case of empty/full stock (data = 0)
-                  //   2: stock is restricted, Flow sets dm = min(flow, data)
-    Real data;    // additional data from the Stock for the Flow:
-                  //   given flow (info = 1) or maximal flow (info = 2)
-   annotation (
-      Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-10,-10},{10,10}})),
-      Icon(coordinateSystem(
-           preserveAspectRatio=true,
-           extent={{-10,-10},{10,10}}),
-           graphics={
-        Ellipse(extent={{-10,-10},{10,10}},
+    Real data;   // additional data from the Stock for the Flow:
+                 //   given flow (info = 1) or maximal flow (info = 2)
+    output Integer info;
+                 // signals special behaviour of a stock
+                 //   0: standard, Flow defines arbitrary dm
+                 //   1: stock takes/delivers fixed amount, Flow sets dm = data
+                 //      includes the case of empty/full stock (data = 0)
+                 //   2: stock is restricted, Flow sets dm = min(flow, data)
+    annotation(
+          Diagram(coordinateSystem(
+                    preserveAspectRatio = true,
+                    extent = {{-100,-100},{100,100}}),
+                 graphics={
+                    Polygon(points={{-100,-100},{100,0},{-100,100}},
          lineColor={0,0,0},
          fillPattern=FillPattern.Solid,
-         fillColor={255,255,255})}));
-  end MassPort;
+                       fillColor = {0,63,127})}),
+          Icon(coordinateSystem(
+                 preserveAspectRatio = true,
+                 extent = {{-100,-100},{100,100}}),
+               graphics={
+                  Polygon(points={{-100,-100},{100,0},{-100,100}},
+         lineColor={0,0,0},
+         fillPattern=FillPattern.Solid,
+                       fillColor = {0,63,127})}));
+  end MassPortR;
 
-  partial model GenericStock
-    Interfaces.MassPort inflow(info(start=0),data(start=0))
+  connector MassPortF "mass port of flows"
+    flow Real dm;
+    Real data;   // additional data from the Stock for the Flow:
+                 //   given flow (info = 1) or maximal flow (info = 2)
+    input Integer info;
+                 // signals special behaviour of a stock
+                 //   0: standard, Flow defines arbitrary dm
+                 //   1: stock takes/delivers fixed amount, Flow sets dm = data
+                 //      includes the case of empty/full stock (data = 0)
+                 //   2: stock is restricted, Flow sets dm = min(flow, data)
+    annotation(
+          Diagram(coordinateSystem(
+                    preserveAspectRatio = true,
+                    extent = {{-100,-100},{100,100}}),
+                 graphics={
+                    Polygon(points={{-100,-100},{100,0},{-100,100}},
+         lineColor={0,0,0},
+         fillPattern=FillPattern.Solid,
+                       fillColor = {0,63,127})}),
+          Icon(coordinateSystem(
+                 preserveAspectRatio = true,
+                 extent = {{-100,-100},{100,100}}),
+               graphics={
+                  Polygon(points={{-100,-100},{100,0},{-100,100}},
+         lineColor={0,0,0},
+         fillPattern=FillPattern.Solid,
+                       fillColor = {0,63,127})}));
+  end MassPortF;
+
+  partial model GenericStock "Generic stock providing two mass ports and two signal outputs
+     for current value"
+    Interfaces.MassPortR inflow(data(start=0))
       annotation(Placement(transformation(
-        extent = {{-95, -5},{-105, 5}}, rotation = 180)));
-    Interfaces.MassPort outflow(info(start=0),data(start=0))
+        extent = {{-140, -20},{-100, 20}})));
+    Interfaces.MassPortR outflow(data(start=0))
       annotation(Placement(transformation(
-        extent = {{95, -5},{105, 5}})));
+        extent = {{100, -20},{140, 20}})));
     Modelica.Blocks.Interfaces.RealOutput out1
       annotation(Placement(transformation(
-        extent = {{-10, 70},{10, 80}}, rotation = 90)));
+        extent = {{-10, 70},{10, 90}}, rotation = 90)));
     Modelica.Blocks.Interfaces.RealOutput out2
       annotation(Placement(transformation(
-        extent = {{-10, -70},{10, -80}}, rotation = 270)));
-    annotation (
-      Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-70},{100,70}})),
+        extent = {{-10, -70},{10, -90}}, rotation = 270)));
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
-         extent={{-100,-70},{100,70}}),
+         extent={{-100,-100},{100,100}}),
          graphics={
            Rectangle(extent = {{-100,-70},{100,70}},
                      lineColor = {0,0,0})}));
   end GenericStock;
 
   function constrainedRate
-    // combines proposed flow with constraints of the attached stocks
-    // doesn't work in MapleSim !!
+    "combines proposed flow with constraints of the attached stocks"
     input Real inRate;
-    input Interfaces.MassPort flow1;
-    input Interfaces.MassPort flow2;
+    input Integer inInfo;
+    input Real inData;
+    input Integer outInfo;
+    input Real outData;
     output Real outRate;
   algorithm
-    if flow1.info == 1 then
-      outRate := flow1.data;
-    elseif flow1.info == 2 then
-      outRate := if flow2.info == 2 then min(inRate, flow1.data, flow2.data)
-                 else min(inRate, flow1.data);
-    elseif flow2.info == 1 then
-      outRate := flow2.data;
-    elseif flow2.info == 2 then
-      outRate := min(inRate, flow2.data);
+    if inInfo == 1 then   // XXX implement problem with outInfo != 0
+      outRate := inData;
+    elseif inInfo == 2 then
+      outRate := if outInfo == 2 then min(min(inRate, inData), outData)
+                 else min(inRate, inData);
+                 // XXX implement problem with outInfo = 1
+    elseif outInfo == 1 then
+      outRate := outData;
+    elseif outInfo == 2 then
+      outRate := min(inRate, outData);
     else
       outRate := inRate;
     end if;
   end constrainedRate;
 
-  partial model GenericFlow
-    Interfaces.MassPort inflow
+  partial model GenericFlow "Generic flow providing two mass ports"
+    Interfaces.MassPortF inflow
       annotation(Placement(transformation(
-        extent = {{-95, -5},{-105, 5}}, rotation = 180)));
-    Interfaces.MassPort outflow
+        extent = {{-140, -20},{-100, 20}})));
+    Interfaces.MassPortF outflow
       annotation(Placement(transformation(
-        extent = {{95, -5},{105, 5}})));
-    protected
+        extent = {{100, -20},{140, 20}})));
+  protected
     Real inRate;    // proposed rate, computed by children
     Real rate;      // actual rate respecting constraints of the stocks
   equation
-    // rate = constrainedRate(inRate, inflow, outflow); // doesn't work
-    if inflow.info == 1 then
-      rate = inflow.data;
-    elseif inflow.info == 2 then
-      rate = if outflow.info == 2
-             then min(min(inRate, inflow.data), outflow.data)
-          else min(inRate, inflow.data);
-    elseif outflow.info == 1 then
-      rate = outflow.data;
-    elseif outflow.info == 2 then
-      rate = min(inRate, outflow.data);
-    else
-      rate = inRate;
-    end if;
+    rate = constrainedRate(inRate, inflow.info, inflow.data,
+                           outflow.info, outflow.data);
     inflow.dm = rate;
     outflow.dm = -rate;
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
          graphics={
              Line(points={{-100,0},{100,0}}),
-             Polygon(points={{-80,-100},{80,-100},{-40,50},{40,50},{-80,-100}})}));
+             Polygon(points={{-80,-100},{80,-100},{-40,50},{40,50}})}));
   end GenericFlow;
 
-  partial model GenericFlowD
-    Interfaces.MassPort inflow
+  partial model GenericFlowD "Discrete generic flow providing two mass ports"
+    Interfaces.MassPortF inflow
       annotation(Placement(transformation(
-        extent = {{-95, -5},{-105, 5}}, rotation = 180)));
-    Interfaces.MassPort outflow
+        extent = {{-140, -20},{-100, 20}})));
+    Interfaces.MassPortF outflow
       annotation(Placement(transformation(
-        extent = {{95, -5},{105, 5}})));
+        extent = {{100, -20},{140, 20}})));
     parameter Modelica.SIunits.Time samplePeriod = 1 "Sample period";
     parameter Modelica.SIunits.Time startTime = 0.1 "First sample time";
-    protected
+  protected
     Real inRate;    // proposed rate, computed by children
     Real rate;      // actual rate respecting constraints of the stocks
   equation
     when sample(startTime, samplePeriod) then
-      // rate = constrainedRate(inRate, inflow, outflow); // doesn't work
-      if inflow.info == 1 then
-          rate = inflow.data;
-      elseif inflow.info == 2 then
-          rate = if outflow.info == 2 then
-        min(min(inRate, inflow.data), outflow.data) else
-        min(inRate, inflow.data);
-      elseif outflow.info == 1 then
-          rate = outflow.data;
-      elseif outflow.info == 2 then
-          rate = min(inRate, outflow.data);
-      else
-          rate = inRate;
-      end if;
+      rate = constrainedRate(inRate, inflow.info, inflow.data,
+        outflow.info, outflow.data);
       inflow.dm = rate;
       outflow.dm = -rate;
     end when;
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -150,18 +161,24 @@ package Interfaces
   end GenericFlowD;
 
   partial model Flow1
+    "Flow with one input children define the equation inRate = f(in1)"
     extends GenericFlow;
-    // Flow with one input
-    // children define the equation inRate = f(in1)
     Modelica.Blocks.Interfaces.RealInput in1
       annotation(Placement(transformation(
         extent = {{-10, -90},{10, -110}}, rotation = 90)));
   end Flow1;
 
+  partial model FlowD1
+    "Discrete Flow with one input children define the equation inRate = f(in1)"
+    extends GenericFlowD;
+    Modelica.Blocks.Interfaces.RealInput in1
+      annotation(Placement(transformation(
+        extent = {{-10, -90},{10, -110}}, rotation = 90)));
+  end FlowD1;
+
   partial model Flow2
+    "Flow with two inputs children define the equation inRate = f(in1, in2)"
     extends GenericFlow;
-    // Flow with two inputs
-    // children define the equation inRate = f(in1, in2)
     Modelica.Blocks.Interfaces.RealInput in1
       annotation(Placement(transformation(
         extent = {{-60, -90},{-40, -110}}, rotation = 90)));
@@ -170,10 +187,9 @@ package Interfaces
         extent = {{40, -90},{60, -110}}, rotation = 90)));
   end Flow2;
 
-  partial model Flow3
+  partial model Flow3 "Flow with three inputs children define the equation
+     inRate = f(in1, in2, in3)"
     extends GenericFlow;
-    // Flow with three inputs
-    // children define the equation inRate = f(in1, in2, in3)
     Modelica.Blocks.Interfaces.RealInput in1
       annotation(Placement(transformation(
         extent = {{-80, -90},{-60, -110}}, rotation = 90)));
@@ -185,10 +201,9 @@ package Interfaces
         extent = {{60, -90},{80, -110}}, rotation = 90)));
   end Flow3;
 
-  partial model Flow4
+  partial model Flow4 "Flow with four inputs children define the equation
+      inRate = f(in1, in2, in3, in4)"
     extends GenericFlow;
-    // Flow with four inputs
-    // children define the equation inRate = f(in1, in2, in3, in4)
     Modelica.Blocks.Interfaces.RealInput in1
       annotation(Placement(transformation(
         extent = {{-100, -90},{-80, -110}}, rotation = 90)));
@@ -203,11 +218,10 @@ package Interfaces
         extent = {{80, -90},{100, -110}}, rotation = 90)));
   end Flow4;
 
-  partial model Flow5
+  partial model Flow5 "Flow with five inputs children define the equation
+     inRate = f(in1, in2, in3, in4, in5)
+     order from left to right, below: 1, 2, 3, above: 4, 5"
     extends GenericFlow;
-    // Flow with five inputs
-    // children define the equation inRate = f(in1, in2, in3, in4, in5)
-    // order from left to right, below: 1, 2, 3, above: 4, 5
     Modelica.Blocks.Interfaces.RealInput in1
       annotation(Placement(transformation(
         extent = {{-80, -90},{-60, -110}}, rotation = 90)));
@@ -223,7 +237,7 @@ package Interfaces
     Modelica.Blocks.Interfaces.RealInput in5
       annotation(Placement(transformation(
         extent = {{50, 90},{70, 110}}, rotation = 270)));
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -234,11 +248,10 @@ package Interfaces
              Line(points={{30,50},{60,90}})}));
   end Flow5;
 
-  partial model Flow6
+  partial model Flow6 "Flow with six inputs children define the equation
+     inRate = f(in1, in2, in3, in4, in5, in6)
+     order from left to right, below: 1, 2, 3, above: 4, 5, 6"
     extends GenericFlow;
-    // Flow with six inputs
-    // children define the equation inRate = f(in1, in2, in3, in4, in5, in6)
-    // order from left to right, below: 1, 2, 3, above: 4, 5, 6
     Modelica.Blocks.Interfaces.RealInput in1
       annotation(Placement(transformation(
         extent = {{-80, -90},{-60, -110}}, rotation = 90)));
@@ -257,7 +270,7 @@ package Interfaces
     Modelica.Blocks.Interfaces.RealInput in6
       annotation(Placement(transformation(
         extent = {{60, 90},{80, 110}}, rotation = 270)));
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -269,13 +282,12 @@ package Interfaces
              Line(points={{0,50},{0,90}})}));
   end Flow6;
 
-  partial block GenericConverter0
-    // Converter without input
+  partial block GenericConverter0 "Generic converter without input"
     Modelica.Blocks.Interfaces.RealOutput out "Output variable"
-    annotation (
+    annotation(
       Placement(transformation(
         extent = {{-10, 90},{10, 110}}, rotation = 90)));
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -284,15 +296,14 @@ package Interfaces
            Line(points={{0,50},{0,100}})}));
   end GenericConverter0;
 
-  partial block GenericConverter1
-    // Converter with one input
+  partial block GenericConverter1 "Generic converter with one input"
     Modelica.Blocks.Interfaces.RealInput in1 "Input variable"
       annotation(Placement(transformation(
         extent = {{-10, -110},{10, -90}}, rotation = 90)));
     Modelica.Blocks.Interfaces.RealOutput out1 "Output variable"
       annotation(Placement(transformation(
         extent = {{-10, 90},{10, 110}}, rotation = 90)));
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -302,8 +313,7 @@ package Interfaces
            Line(points={{0,-50},{0,-100}})}));
   end GenericConverter1;
 
-  partial block GenericConverter2
-    // Converter with two inputs
+  partial block GenericConverter2 "Generic converter with two inputs"
     Modelica.Blocks.Interfaces.RealInput in1 "Input variable 1"
       annotation(Placement(transformation(
         extent = {{-70,-110},{-50,-90}}, rotation = 90)));
@@ -313,7 +323,7 @@ package Interfaces
     Modelica.Blocks.Interfaces.RealOutput out1 "Output variable"
       annotation(Placement(transformation(
         extent = {{-10,90},{10,110}}, rotation = 90)));
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -324,8 +334,7 @@ package Interfaces
            Line(points={{60,-90},{60,-70},{32.5,-38}})}));
   end GenericConverter2;
 
-  partial block GenericConverter3
-    // Converter with three inputs
+  partial block GenericConverter3 "Generic converter with three inputs"
     Modelica.Blocks.Interfaces.RealInput in1 "Input variable 1"
       annotation(Placement(transformation(
         extent = {{-90,-110},{-70,-90}}, rotation = 90)));
@@ -338,7 +347,7 @@ package Interfaces
     Modelica.Blocks.Interfaces.RealOutput out1 "Output variable"
       annotation(Placement(transformation(
         extent = {{-10,90},{10,110}}, rotation = 90)));
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -350,8 +359,7 @@ package Interfaces
            Line(points={{80,-90},{80,-70},{37.6,-32.9}})}));
   end GenericConverter3;
 
-  partial block GenericConverter4
-    // Converter with four inputs
+  partial block GenericConverter4 "Generic converter with four inputs"
     Modelica.Blocks.Interfaces.RealInput in1 "Input variable 1"
       annotation(Placement(transformation(
         extent = {{-100,-110},{-80,-90}}, rotation = 90)));
@@ -367,7 +375,7 @@ package Interfaces
     Modelica.Blocks.Interfaces.RealOutput out1 "Output variable"
       annotation(Placement(transformation(
         extent = {{-10,90},{10,110}}, rotation = 90)));
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -380,8 +388,7 @@ package Interfaces
            Line(points={{90,-90},{90,-70},{39.5,-30.7}})}));
   end GenericConverter4;
 
-  partial block GenericConverter5
-    // Converter with four inputs
+  partial block GenericConverter5 "Generic converter with four inputs"
     Modelica.Blocks.Interfaces.RealInput in1 "Input variable 1"
       annotation(Placement(transformation(
         extent = {{-100,-110},{-80,-90}}, rotation = 90)));
@@ -400,7 +407,7 @@ package Interfaces
     Modelica.Blocks.Interfaces.RealOutput out1 "Output variable"
       annotation(Placement(transformation(
         extent = {{-10,90},{10,110}}, rotation = 90)));
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -421,7 +428,7 @@ package Reservoirs
   model Stock "standard reservoir"
     extends Interfaces.GenericStock;
     parameter Real m0 = 0.0;
-    protected
+  protected
     Real m(start=m0, fixed=true);
   equation
     der(m) = inflow.dm + outflow.dm;
@@ -438,14 +445,14 @@ package Reservoirs
     parameter Real m0 = 0.0;
     parameter Modelica.SIunits.Time samplePeriod = 1 "Sample period";
     parameter Modelica.SIunits.Time startTime = 0.1 "First sample time";
-    protected
+  protected
     Real m(start=m0, fixed=true);
   equation
     when sample(startTime, samplePeriod) then
       m = pre(m) + pre(inflow.dm) + pre(outflow.dm);
-      out1 = m;
-      out2 = m;
     end when;
+    out1 = m;
+    out2 = m;
     inflow.info = 0;
     inflow.data = 0;
     outflow.info = 0;
@@ -457,7 +464,7 @@ package Reservoirs
     parameter Real m0 = 1.0;
     parameter Real maxLevel = 1e306;
     parameter Real minLevel = -1e306;
-    protected
+  protected
     Real m(start=m0, fixed=true);
   equation
     outflow.info = if (m <= minLevel) then 1 else 0;
@@ -476,7 +483,7 @@ package Reservoirs
     parameter Real minLevel = -1e306;
     parameter Modelica.SIunits.Time samplePeriod = 1 "Sample period";
     parameter Modelica.SIunits.Time startTime = 0.1 "First sample time";
-    protected
+  protected
     Real m(start=m0, fixed=true);
   equation
     when sample(startTime, samplePeriod) then
@@ -490,70 +497,69 @@ package Reservoirs
     out2 = m;
   end SaturatedStockD;
 
-  model CloudSource
-    Interfaces.MassPort outflow
+  model CloudSource "External input with infinite supply"
+    Interfaces.MassPortR outflow
       annotation(Placement(transformation(
-        extent = {{95, -5},{105, 5}})));
+        extent = {{90, -20},{130, 20}})));
   equation
     outflow.info = 0;
     outflow.data = 0;
-    annotation (
+    annotation(
       Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}),
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}}),
           graphics={
-            Line(smooth=  Smooth.Bezier,
-              points=  {{-82.1,7.1},{-87.8,34.1},{-67.4,69.9},
+            Line(smooth = Smooth.Bezier,
+              points={{-82.1,7.1},{-87.8,34.1},{-67.4,69.9},
    {-36.1,73.9},{-22.4,56.4}}),
-            Line(smooth=  Smooth.Bezier,
-       points=  {{-28.5,48.0},{-9.3,66.8},{26.3,77.7},
+            Line(smooth = Smooth.Bezier,
+       points={{-28.5,48.0},{-9.3,66.8},{26.3,77.7},
    {56.8,68.6},{78.9,38.5},{84.3,20.2},
    {83.6,0.5}}),
-            Line(smooth=  Smooth.Bezier,
-       points=  {{-82.7,12.4},{-90.9,-8.6},{-89.5,-35.2},
+            Line(smooth = Smooth.Bezier,
+       points={{-82.7,12.4},{-90.9,-8.6},{-89.5,-35.2},
    {-69.7,-53.5},{-34.8,-63.2},{17.1,-63.5},
    {31.6,-47.8},{38.9,-26.5}}),
-            Line(smooth=  Smooth.Bezier,
-       points=  {{84.3,11.1},{96.4,5.8},{100,-15.6},
+            Line(smooth = Smooth.Bezier,
+       points={{84.3,11.1},{96.4,5.8},{100,-15.6},
    {90.3,-53.9},{58.8,-60.1},{30.2,-48.2}})}));
   end CloudSource;
 
-  model CloudSink
-    Interfaces.MassPort inflow
+  model CloudSink "External output"
+    Interfaces.MassPortR inflow
       annotation(Placement(transformation(
-        extent = {{-95, -5},{-105, 5}}, rotation = 180)));
+        extent = {{-130, -20},{-90, 20}})));
   equation
     inflow.info = 0;
     inflow.data = 0;
-    annotation (
+    annotation(
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
             graphics={
-              Line(smooth=  Smooth.Bezier,
-                points=  {{-82.1,7.1},{-87.8,34.1},{-67.4,69.9},
-     {-36.1,73.9},{-22.4,56.4}}),
-              Line(smooth=  Smooth.Bezier,
-         points=  {{-28.5,48.0},{-9.3,66.8},{26.3,77.7},
+              Line(smooth = Smooth.Bezier,
+                points={{-82.1,7.1},{-87.8,34.1},{-67.4,69.9},
+                          {-36.1,73.9},{-22.4,56.4}}),
+              Line(smooth = Smooth.Bezier,
+         points={{-28.5,48.0},{-9.3,66.8},{26.3,77.7},
      {56.8,68.6},{78.9,38.5},{84.3,20.2},
      {83.6,0.5}}),
-              Line(smooth=  Smooth.Bezier,
-         points=  {{-82.7,12.4},{-90.9,-8.6},{-89.5,-35.2},
+              Line(smooth = Smooth.Bezier,
+         points={{-82.7,12.4},{-90.9,-8.6},{-89.5,-35.2},
      {-69.7,-53.5},{-34.8,-63.2},{17.1,-63.5},
      {31.6,-47.8},{38.9,-26.5}}),
-              Line(smooth=  Smooth.Bezier,
-         points=  {{84.3,11.1},{96.4,5.8},{100,-15.6},
+              Line(smooth = Smooth.Bezier,
+         points={{84.3,11.1},{96.4,5.8},{100,-15.6},
      {90.3,-53.9},{58.8,-60.1},{30.2,-48.2}})}));
   end CloudSink;
 
-  model Conveyor
+  model Conveyor "Conveyor with time delay given as number of sample steps"
     extends Interfaces.GenericStock;
-    // conveyor with time delay given as number of sample steps
     parameter Integer nDelay = 5;
     parameter Modelica.SIunits.Time samplePeriod = 1 "Sample period";
     parameter Modelica.SIunits.Time startTime = 0.1 "First sample time";
-    protected
-    Real store[nDelay];
+  protected
+    Real store[nDelay](start=zeros(nDelay),each fixed=true);
     Real load, last;
   equation
     when sample(startTime, samplePeriod) then
@@ -568,31 +574,27 @@ package Reservoirs
     inflow.info = 0;
     inflow.data = 0;
     outflow.info = 1;
-    annotation (
-      Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-70},{100,70}})),
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
-         extent={{-100,-70},{100,70}}),
+         extent={{-100,-100},{100,100}}),
          graphics={
-           Rectangle(extent=  {{-100,-70},{100,70}},
-                     lineColor=  {0,0,0}),
+           Rectangle(extent = {{-100,-70},{100,70}},
+                     lineColor = {0,0,0}),
     Line(points={{0,-70},{0,70}}),
     Line(points={{50,-70},{50,70}}),
     Line(points={{-50,-70},{-50,70}})}));
   end Conveyor;
 
-  model Oven
+  model Oven "Simple plant model with overlap: reload starts during unloading
+     mimics behaviour of Stella block"
     extends Interfaces.GenericStock;
-    // oven with overlap: reload starts during unloading
-    // mimics behaviour of Stella block
     parameter Real capacity = 3;
     parameter Real cookingTime = 2;
     parameter Real initialLoad = 0;
     parameter Modelica.SIunits.Time samplePeriod = 1 "Sample period";
     parameter Modelica.SIunits.Time startTime = 0.1 "First sample time";
-    protected
+  protected
     Real load(start=initialLoad, fixed=true);
     Real spaceleft(start=capacity - initialLoad, fixed=true);
     Real amountCooked(start=0, fixed=true);
@@ -602,148 +604,162 @@ package Reservoirs
       // stepsleft = 0 -> oven is loaded
       // stepsleft = 1 -> oven gets ready, unload and start reloading
       // else         -> oven works
-      load = if pre(stepsleft) == 0 then min(pre(load)+ pre(inflow.dm), capacity)
+      load = if pre(stepsleft) == 0
+             then min(pre(load) + pre(inflow.dm), capacity)
              elseif pre(stepsleft) == 1 then min(pre(inflow.dm), capacity)
              else capacity;
       amountCooked = if pre(stepsleft) == 1 then capacity else 0;
       stepsleft = if (pre(stepsleft) == 0) or (pre(stepsleft) == 1)
-                  then if (load == capacity)
+                  then if (load >= capacity)  // actually load == capacity
                          then integer(cookingTime/samplePeriod) else 0
-                  else pre(stepsleft) -1;
+                  else pre(stepsleft) - 1;
       spaceleft = if stepsleft == 0 then capacity - load
                   elseif stepsleft == 1 then capacity
                   else 0;
-      out1 = load;
-      out2 = load;
-      inflow.data = spaceleft;
-      outflow.data = amountCooked;
     end when;
+    out1 = load;
+    out2 = load;
+    inflow.data = spaceleft;
+    outflow.data = amountCooked;
     inflow.info = 2;
     outflow.info = 1;
-    annotation (
-      Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-70},{100,70}})),
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
-         extent={{-100,-70},{100,70}}),
+         extent={{-100,-100},{100,100}}),
          graphics={
-           Rectangle(extent=  {{-100,-70},{100,70}},
-                     lineColor=  {0,0,0}),
-           Rectangle(extent=  {{-70,-50},{70,50}},
-                     lineColor=  {0,0,0})}));
+           Rectangle(extent = {{-100,-70},{100,70}},
+                     lineColor = {0,0,0}),
+           Rectangle(extent = {{-70,-50},{70,50}},
+                     lineColor = {0,0,0})}));
   end Oven;
 
 end Reservoirs;
 
 package Flows
 
-  model ConstantFlow
+  model ConstantFlow "Flow is given by parameter"
     extends Interfaces.GenericFlow;
-    // flow given by a parameter
     parameter Real constRate = 1.0;
   equation
     inRate = constRate;
   end ConstantFlow;
 
-  model ConstantFlowD
+  model ConstantFlowD "Discrete flow is given by parameter"
     extends Interfaces.GenericFlowD;
-    // flow given by a parameter
     parameter Real constRate = 1.0;
   equation
     inRate = constRate;
   end ConstantFlowD;
 
-  model Flow
+  model Flow "Flow is given by in1"
     extends Interfaces.Flow1;
-    // flow given by input
   equation
     inRate = in1;
   end Flow;
 
+  model FlowD "Discrete flow is given by in1"
+    extends Interfaces.FlowD1;
+  equation
+    inRate = in1;
+  end FlowD;
+
   model SwitchedFlow
+    "Flow is given as onValue if in = switchValue, else offValue"
     extends Interfaces.Flow1;
-    // out = onValue if in = switchValue, else offValue
     parameter Integer switchValue = 1;
     parameter Real onValue = 1.0;
     parameter Real offValue = 0.0;
   equation
-    inRate = if in1 == switchValue then onValue else offValue;
+    inRate = if integer(in1+0.5) == switchValue then onValue else offValue;
   end SwitchedFlow;
 
-  model Mult2Flow
+  model SwitchedFlowD
+    "Discrete flow is given as onValue if in = switchValue, else offValue"
+    extends Interfaces.GenericFlowD;
+    Modelica.Blocks.Interfaces.RealInput in1
+      annotation(Placement(transformation(
+        extent = {{-10, -90},{10, -110}}, rotation = 90)));
+    parameter Integer switchValue = 1;
+    parameter Real onValue = 1.0;
+    parameter Real offValue = 0.0;
+  equation
+    inRate = if integer(in1+0.5) == switchValue then onValue else offValue;
+  end SwitchedFlowD;
+
+  model Mult2Flow "Flow is given as the product of the two inputs"
     extends Interfaces.Flow2;
   equation
     inRate = in1*in2;
   end Mult2Flow;
 
-  model Mult3Flow
+  model Mult3Flow "Flow is given as the product of the three inputs"
     extends Interfaces.Flow3;
   equation
     inRate = in1*in2*in3;
   end Mult3Flow;
 
-  model Mult4Flow
+  model Mult4Flow "Flow is given as the product of the four inputs"
     extends Interfaces.Flow4;
   equation
     inRate = in1*in2*in3*in4;
   end Mult4Flow;
 
-  model Mult5Flow
+  model Mult5Flow "Flow is given as the product of the five inputs"
     extends Interfaces.Flow5;
   equation
     inRate = in1*in2*in3*in4*in5;
   end Mult5Flow;
 
-  model Mult6Flow
+  model Mult6Flow "Flow is given as the product of the six inputs"
     extends Interfaces.Flow6;
   equation
     inRate = in1*in2*in3*in4*in5*in6;
   end Mult6Flow;
 
-  model Div2Flow
+  model Div2Flow "Flow is given as in1 / in2"
     extends Interfaces.Flow2;
   equation
     inRate = in1/in2;
   end Div2Flow;
 
-  model Mult2AddFlow
+  model Mult2AddFlow "Flow is given as in1 * in2 + in3"
     extends Interfaces.Flow3;
   equation
     inRate = in1*in2 + in3;
   end Mult2AddFlow;
 
-  model Mult2DivFlow
+  model Mult2DivFlow "Flow is given as in1 * in2 / in3"
     extends Interfaces.Flow3;
   equation
     inRate = in1*in2/in3;
   end Mult2DivFlow;
 
-  model Mult2SubDiv2Flow
+  model Mult2SubDiv2Flow "Flow is given as in1 * in2 - in3 * in4"
     extends Interfaces.Flow4;
   equation
     inRate = in1*in2 - in3/in4;
   end Mult2SubDiv2Flow;
 
-  model Mult2IFlow
+  model Mult2IFlow "Flow is given as round(in1 * in2)"
     extends Interfaces.Flow2;
   equation
     inRate = floor(in1*in2 + 0.5);
   end Mult2IFlow;
 
-  model Mult3IFlow
+  model Mult3IFlow "Flow is given as round(in1 * in2 * in3)"
     extends Interfaces.Flow3;
   equation
     inRate = floor(in1*in2*in3 + 0.5);
   end Mult3IFlow;
 
-  model Mult2AddIFlow
+  model Mult2AddIFlow "Flow is given as round(in1 * in2 + in3)"
     extends Interfaces.Flow3;
   equation
     inRate = floor(in1*in2 + in3 + 0.5);
   end Mult2AddIFlow;
 
-  model Mult2SubDiv2IFlow
+  model Mult2SubDiv2IFlow "Flow is given as round(in1 * in2 - in3 / in4)"
     extends Interfaces.Flow4;
   equation
     inRate = floor(in1*in2 - in3/in4 + 0.5);
@@ -753,17 +769,16 @@ end Flows;
 
 package Converters
 
-  block ConstantConverter
+  block ConstantConverter "Output is given by parameter"
     extends Interfaces.GenericConverter0;
-    // out = constant
     parameter Real constValue = 1.0;
   equation
     out = constValue;
   end ConstantConverter;
 
   block TimeSwitchedConverter
+    "Output is given as newValue if t >= switchTime, else oldValue"
     extends Interfaces.GenericConverter0;
-    // out = newValue if t >= switchTime, else oldValue
     parameter Real switchTime = 1.0;
     parameter Real oldValue = 0.0;
     parameter Real newValue = 1.0;
@@ -772,47 +787,61 @@ package Converters
   end TimeSwitchedConverter;
 
   block SwitchedConverter
+    "Output is given as onValue if in = switchValue, else offValue"
     extends Interfaces.GenericConverter1;
-    // out = onValue if in = switchValue, else offValue
     parameter Integer switchValue = 1;
     parameter Real onValue = 1.0;
     parameter Real offValue = 0.0;
   equation
-    out1 = if in1 == switchValue then onValue else offValue;
+    out1 = if integer(in1+0.5) == switchValue then onValue else offValue;
   end SwitchedConverter;
 
-  block Mult2Converter
+  block SwitchedConverterD
+    "Discrete output is given as onValue if in = switchValue, else offValue"
+    extends Interfaces.GenericConverter1;
+    parameter Integer switchValue = 1;
+    parameter Real onValue = 1.0;
+    parameter Real offValue = 0.0;
+    parameter Modelica.SIunits.Time samplePeriod = 1 "Sample period";
+    parameter Modelica.SIunits.Time startTime = 0.1 "First sample time";
+  equation
+    when sample(startTime, samplePeriod) then
+      out1 = if integer(in1+0.5) == switchValue then onValue else offValue;
+    end when;
+  end SwitchedConverterD;
+
+  block Mult2Converter "Output is given as the product of the two inputs"
     extends Interfaces.GenericConverter2;
   equation
     out1 = in1*in2;
   end Mult2Converter;
 
-  block Mult3Converter
+  block Mult3Converter "Output is given as the product of the three inputs"
     extends Interfaces.GenericConverter3;
   equation
     out1 = in1*in2*in3;
   end Mult3Converter;
 
-  block Mult4Converter
+  block Mult4Converter "Output is given as the product of the four inputs"
     extends Interfaces.GenericConverter4;
   equation
     out1 = in1*in2*in3*in4;
   end Mult4Converter;
 
-  block Mult5Converter
+  block Mult5Converter "Output is given as the product of the five inputs"
     extends Interfaces.GenericConverter5;
   equation
     out1 = in1*in2*in3*in4*in5;
   end Mult5Converter;
 
-  block Div2Converter
+  block Div2Converter "Output is given as in1 / in2"
     extends Interfaces.GenericConverter2
-      annotation (
+      annotation(
         IconMap(extent={{-100,-100}, {100,100}},primitivesVisible=true),
         DiagramMap(extent={{-100,-100}, {100,100}},primitivesVisible=true));
   equation
     out1 = in1/in2;
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -822,7 +851,7 @@ package Converters
                  lineColor={0,0,0})}));
   end Div2Converter;
 
-  block MultPower2Converter
+  block MultPower2Converter "Output is given as in1^k1 * in2^k2"
     extends Interfaces.GenericConverter2;
     parameter Real k1 = 1.0;
     parameter Real k2 = 1.0;
@@ -830,7 +859,7 @@ package Converters
     out1 = in1^k1 * in2^k2;
   end MultPower2Converter;
 
-  block MultPower3Converter
+  block MultPower3Converter "Output is given as in1^k1 * in2^k2 * in3^k3"
     extends Interfaces.GenericConverter3;
     parameter Real k1 = 1.0;
     parameter Real k2 = 1.0;
@@ -840,6 +869,7 @@ package Converters
   end MultPower3Converter;
 
   block MultPower4Converter
+    "Output is given as in1^k1 * in2^k2 * in3^k3 * in4^k4"
     extends Interfaces.GenericConverter4;
     parameter Real k1 = 1.0;
     parameter Real k2 = 1.0;
@@ -850,6 +880,7 @@ package Converters
   end MultPower4Converter;
 
   block MultPower5Converter
+    "Output is given as in1^k1 * in2^k2 * in3^k3 * in4^k4 * in5^k5"
     extends Interfaces.GenericConverter5;
     parameter Real k1 = 1.0;
     parameter Real k2 = 1.0;
@@ -860,15 +891,16 @@ package Converters
     out1 = in1^k1 * in2^k2 * in3^k3 * in4^k4 * in5^k5;
   end MultPower5Converter;
 
-  block Min2Converter
+  block Min2Converter "Output is given as min(in1, in2)"
     extends Interfaces.GenericConverter2;
   equation
     out1 = min(in1, in2);
   end Min2Converter;
 
   block GraphConverter
+    "Output is given by interpolation using values from a table in a file"
     extends Interfaces.GenericConverter1
-      annotation (
+      annotation(
         IconMap(extent={{-100,-100}, {100,100}},primitivesVisible=true),
         DiagramMap(extent={{-100,-100}, {100,100}},primitivesVisible=true));
     parameter String table = "tableName";
@@ -878,7 +910,7 @@ package Converters
   equation
     combitable1ds1.u = in1;
     out1 = combitable1ds1.y[1];
-    annotation (
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -895,19 +927,37 @@ package Converters
            Line(points={{-25,21},{25, 21}})}));
   end GraphConverter;
 
-  block Mult2GraphConverter
+  model Mult2GraphConverter "Output is given by multiplying in1 and in2, then interpolating
+    using values from a table in a file"
     extends Interfaces.GenericConverter2
-      annotation (
+    annotation(
         IconMap(extent={{-100,-100}, {100,100}},primitivesVisible=true),
         DiagramMap(extent={{-100,-100}, {100,100}},primitivesVisible=true));
     parameter String table = "tableName";
     parameter String file = "fileName";
-    Modelica.Blocks.Tables.CombiTable1Ds combitable1ds1(
-      tableOnFile = true, tableName = table, fileName = file);
+
+    SystemDynamics.Converters.GraphConverter graphConverter(
+      table = table, file = file) annotation(Placement(transformation(extent={{-28,32},{-8,52}})));
+    SystemDynamics.Converters.Mult2Converter mult2Converter
+      annotation(Placement(transformation(extent={{-28,4},{-8,24}})));
   equation
-    combitable1ds1.u = in1*in2;
-    out1 = combitable1ds1.y[1];
-    annotation (
+    connect(mult2Converter.in1, in1) annotation(Line(
+      points={{-24,4},{-24,-7},{-58,-7},{-58,-66}},
+      color={0,0,127},
+      smooth=Smooth.None));
+    connect(mult2Converter.in2, in2) annotation(Line(
+      points={{-12,4},{-12,-8},{38,-8},{38,-66}},
+      color={0,0,127},
+      smooth=Smooth.None));
+    connect(mult2Converter.out1, graphConverter.in1) annotation(Line(
+      points={{-18,24},{-18,32}},
+      color={0,0,127},
+      smooth=Smooth.None));
+    connect(graphConverter.out1, out1) annotation(Line(
+      points={{-18,52},{-18,90}},
+      color={0,0,127},
+      smooth=Smooth.None));
+    annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -926,5 +976,15 @@ package Converters
 
 end Converters;
 
-  annotation (uses(Modelica(version="3.2.1")));
+  annotation(Documentation(info="<html>
+<p>This package contains a library to create system dynamics diagrams. It has
+been created for the book: P. Junglas, Praxis der Simulationstechnik.</p>
+
+<p>The SystemDynamics library is an open source project distributed under the
+GPL license. This means that you can copy, modify and redistribute the library,
+but you have to respect the copyright of the author. The software is provided
+without any warranty of any kind.</p>
+
+<p>&copy; Peter Junglas 2014</p>
+</html>"), uses(Modelica(version="3.2.1")));
 end SystemDynamics;
