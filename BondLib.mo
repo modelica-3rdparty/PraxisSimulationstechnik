@@ -328,7 +328,7 @@ package Bonds "Bonds of Modelica bond graph library"
     Interfaces.BondCon BondCon2 "Right bond graph connector"
       annotation(Placement(transformation(
         extent = {{90, -10},{110, 10}})));
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-10},{100,10}}),
@@ -349,7 +349,7 @@ package Bonds "Bonds of Modelica bond graph library"
     Interfaces.BondCon BondCon2 "Right bond graph connector"
       annotation(Placement(transformation(
         extent = {{90, 90},{110, 110}})));
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -369,7 +369,7 @@ package Junctions "Junctions of Modelica bond graph library"
 
   model J0 "Model of a standard 0-junction with up to four ports"
     extends Interfaces.FourPortZero2;
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -384,7 +384,7 @@ package Junctions "Junctions of Modelica bond graph library"
 
   model J0large "Model of a large 0-junction with up to eight ports"
     extends Interfaces.EightPortZero;
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -398,7 +398,7 @@ package Junctions "Junctions of Modelica bond graph library"
 
   model J1 "Model of a standard 1-junction with up to four ports"
     extends Interfaces.FourPortOne2;
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -412,7 +412,7 @@ package Junctions "Junctions of Modelica bond graph library"
 
   model J1large "Model of a large 1-junction with up to eight ports"
     extends Interfaces.EightPortOne;
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -431,7 +431,7 @@ package Passive "Passive elements of Modelica bond graph library"
   model R "The bondgraphic linear resistor element"
     extends Interfaces.PassiveOnePort;
     parameter Real R=1 "Bondgraphic Resistance";
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -445,7 +445,7 @@ package Passive "Passive elements of Modelica bond graph library"
   model C "The bondgraphic linear capacitor element"
     extends Interfaces.PassiveOnePort;
     parameter Real C=1 "Bondgraphic Capacitance";
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -459,7 +459,7 @@ package Passive "Passive elements of Modelica bond graph library"
   model I "The bondgraphic linear inductor element"
     extends Interfaces.PassiveOnePort;
     parameter Real I=1 "Bondgraphic Inductance";
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -473,7 +473,7 @@ package Passive "Passive elements of Modelica bond graph library"
   model TF "The bondgraphic linear transformer element"
     extends Interfaces.TwoPort;
     parameter Real m=1 "Bondgraphic Transformation Constant";
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -488,7 +488,7 @@ package Passive "Passive elements of Modelica bond graph library"
   model GY "The bondgraphic linear gyrator element"
     extends Interfaces.TwoPort;
     parameter Real r=1 "Bondgraphic Gyration Constant";
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -507,7 +507,7 @@ package Sources "Sources of Modelica bond graph library"
   model Se "Constant effort source of the Modelica bond graph library"
     extends Interfaces.ActiveOnePort;
     parameter Real e0=1 "Bondgraphic Effort Source";
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -521,7 +521,7 @@ package Sources "Sources of Modelica bond graph library"
   model mSe "Modulated effort source of the Modelica bond graph library"
     extends Interfaces.ModActiveOnePort;
     Real e0 "Bondgraphic Effort Source";
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -536,7 +536,7 @@ package Sources "Sources of Modelica bond graph library"
   model Sf "Constant flow source of the Modelica bond graph library"
     extends Interfaces.ActiveOnePort;
     parameter Real f0=1 "Bondgraphic Flow Source";
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -550,7 +550,7 @@ package Sources "Sources of Modelica bond graph library"
   model mSf "Modulated flow source of the Modelica bond graph library"
     extends Interfaces.ModActiveOnePort;
     Real f0 "Bondgraphic Effort Source";
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -575,7 +575,7 @@ package Sources "Sources of Modelica bond graph library"
         offset=offset,
         phase=phase,
         startTime=startTime);
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -599,7 +599,7 @@ package Sources "Sources of Modelica bond graph library"
         offset=offset,
         phase=phase,
         startTime=startTime);
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -621,7 +621,7 @@ package Sensors "Sensors (detectors) of Modelica bond graph library"
         extent = {{90, -10},{110, 10}})));
     parameter Real p0 = 0 "Initial momentum";
     Real p(start=p0);
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
@@ -640,7 +640,7 @@ package Sensors "Sensors (detectors) of Modelica bond graph library"
         extent = {{90, -10},{110, 10}})));
     parameter Real q0 = 0 "Initial position";
     Real q(start=q0);
-    annotation(uses(Modelica(version="3.1")),
+    annotation(uses(Modelica(version="3.2.1")),
       Icon(coordinateSystem(
          preserveAspectRatio=true,
          extent={{-100,-100},{100,100}}),
