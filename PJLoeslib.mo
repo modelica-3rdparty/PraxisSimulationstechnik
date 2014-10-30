@@ -55,12 +55,12 @@ package PJLoeslib
     end WaermetauscherGlied;
 
     model WaermetauscherGliedFhf
-      parameter Mass mOel = 1 "Masse Öl pro Element";
+      parameter Mass mOel = 1 "Masse Ã–l pro Element";
       parameter Mass mWasser = 2 "Masse Wasser pro Element";
-      parameter Real koel = 400 "Wärmekonvektion Öl - Wand";
-      parameter Real kwasser = 2000 "Wärmekonvektion Wasser - Wand";
-      parameter ThermalConductance Gwand = 5000 "Wärmeleitung Wand";
-      parameter Temperature Toel0 = 360 "Anfangstemperatur des Öls";
+      parameter Real koel = 400 "WÃ¤rmekonvektion Ã–l - Wand";
+      parameter Real kwasser = 2000 "WÃ¤rmekonvektion Wasser - Wand";
+      parameter ThermalConductance Gwand = 5000 "WÃ¤rmeleitung Wand";
+      parameter Temperature Toel0 = 360 "Anfangstemperatur des Ã–ls";
       parameter Temperature Twasser0 = 290 "Anfangstemperatur des Wassers";
       Modelica.Thermal.HeatTransfer.Components.ThermalConductor thermalconductor2(G = Gwand) annotation(Placement(transformation(origin = {-31.339,3.7037}, extent = {{-12,12},{12,-12}}, rotation = -90)));
       Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe heatedpipe1(h_g = 0,                  m = mOel, T0 = Toel0, tapT = 0, V_flowLaminar = 0.1,                  V_flowNominal = 1,
