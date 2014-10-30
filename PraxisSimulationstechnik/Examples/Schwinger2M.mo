@@ -18,7 +18,7 @@ equation
   connect(mass2.flange_b,springdamper2.flange_a) annotation(Line(points={{
           -26.9606,8.24881},{-16.9606,8.24881},{-16.9606,8.24881},{-17.4606,
           8.24881}}));
-  annotation(Diagram,   experiment(StartTime = 0.0, StopTime = 25, Tolerance = 0.000001),
+  annotation(experiment(StartTime = 0.0, StopTime = 25, Tolerance = 0.000001),
     uses(Modelica(version="3.2")));
 end Schwinger2M;
 

@@ -47,7 +47,7 @@ equation
           {-20.8563,-37.7434},{-133.954,-37.7434},{-133.954,5.8244}}));
   connect(idealgear1.flange_b,inertia1.flange_a) annotation(Line(points={{107.309,
           19.3412},{115.252,19.3412},{115.252,19.911},{115.503,19.911}}));
-  annotation(Diagram,   experiment(StartTime = 0.0, StopTime = 10.0, Tolerance = 0.000001),
+  annotation(experiment(StartTime = 0.0, StopTime = 10.0, Tolerance = 0.000001),
     uses(Modelica(version="3.2")));
 end EMotor2;
 

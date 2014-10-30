@@ -39,7 +39,7 @@ package PJLoeslib
       connect(heatport_b1,thermalconductor1.port_b) annotation(Line(points = {{99.14530000000001,48.433},{68.0912,48.433},{68.0912,63.5328},{14.5641,63.5328}}));
       connect(heatport_a1,heatcapacitor1.port) annotation(Line(points = {{-100.57,49.0028},{-31.0541,49.0028},{-31.0541,76.0342},{-31.0541,76.0342}}));
       connect(thermalconductor1.port_a,heatcapacitor1.port) annotation(Line(points = {{-9.4359,63.5328},{-31.0541,63.5328},{-31.0541,76.0342},{-31.0541,76.0342}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor = {0,0,0}, fillColor = {255,0,0}, pattern = LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor = {0,0,0}, fillColor = {255,0,0}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.Solid,
                 lineThickness =                                                                                                   0.25, extent = {{-100,70.0855},{-36.1823,25.9259}}),Rectangle(lineColor = {0,0,0}, fillColor = {255,85,0}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.Solid,
@@ -102,7 +102,7 @@ package PJLoeslib
       connect(heatedpipe1.flowPort_a,flowport_a1) annotation(Line(points={{
               -41.5938,64.8801},{-68.8293,64.8801},{-68.8293,44.8519},{-99.5769,
               44.8519},{-99.5769,45.4161}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor = {0,0,0}, fillColor = {255,0,0}, pattern = LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor = {0,0,0}, fillColor = {255,0,0}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.Solid,
                 lineThickness =                                                                                                   0.25, extent = {{-100,70.0855},{-36.1823,25.9259}}),Rectangle(lineColor = {0,0,0}, fillColor = {255,85,0}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.Solid,
@@ -1074,7 +1074,7 @@ package PJLoeslib
       connect(heater3.inflow,waterOut) annotation(Line(points = {{50.351,60.3965},{76.3533,60.3965},{76.3533,50.4274},{100,50.4274},{100,50}}));
       connect(waterIn,heater1.outflow) annotation(Line(points = {{-100,50},{-75.2137,50},{-75.2137,60.114},{-51.4268,60.114},{-51.4268,60.1091}}));
       connect(heater1.inflow,heater2.outflow) annotation(Line(points = {{-27.4268,60.1091},{-12.6437,60.1091},{-12.6437,59.8242},{-12.1105,59.8242}}));
-      annotation(Diagram,   Icon(graphics = {Rectangle(lineColor=  {0,0,0}, fillColor=  {255,0,0}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{-100,70.0855},{-36.1823,25.9259}}),Rectangle(lineColor=  {0,0,0}, fillColor=  {255,85,0}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{-37.037,70.0855},{27.9202,25.9259}}),Rectangle(lineColor=  {0,0,0}, fillColor=  {255,255,0}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{27.9202,70.0855},{100,25.9259}}),Rectangle(lineColor=  {0,0,0}, fillColor=  {0,255,255}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{-100,-18.8034},{-35.8974,-63.2479}}),Rectangle(lineColor=  {0,0,0}, fillColor=  {0,170,255}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{-35.8974,-18.8034},{26.4957,-63.2479}}),Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,255}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{26.4957,-18.8034},{100,-63.2479}}),Line(points=  {{-56.9801,21.6524},{-56.9801,-11.1111}}, color=  {255,0,0}, pattern=  LinePattern.Solid, thickness=  5.25, smooth=  Smooth.Bezier),Line(points=  {{-5.41311,21.0826},{-5.41311,-10.8262}}, color=  {255,0,0}, pattern=  LinePattern.Solid, thickness=  5.25, smooth=  Smooth.Bezier),Line(points=  {{47.5783,20.5128},{47.5783,-11.396}}, color=  {255,0,0}, pattern=  LinePattern.Solid, thickness=  5.25, smooth=  Smooth.Bezier)}));
+      annotation(Icon(graphics = {Rectangle(lineColor=  {0,0,0}, fillColor=  {255,0,0}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{-100,70.0855},{-36.1823,25.9259}}),Rectangle(lineColor=  {0,0,0}, fillColor=  {255,85,0}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{-37.037,70.0855},{27.9202,25.9259}}),Rectangle(lineColor=  {0,0,0}, fillColor=  {255,255,0}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{27.9202,70.0855},{100,25.9259}}),Rectangle(lineColor=  {0,0,0}, fillColor=  {0,255,255}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{-100,-18.8034},{-35.8974,-63.2479}}),Rectangle(lineColor=  {0,0,0}, fillColor=  {0,170,255}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{-35.8974,-18.8034},{26.4957,-63.2479}}),Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,255}, pattern=  LinePattern.Solid, fillPattern=  FillPattern.Solid, lineThickness=  0.25, extent=  {{26.4957,-18.8034},{100,-63.2479}}),Line(points=  {{-56.9801,21.6524},{-56.9801,-11.1111}}, color=  {255,0,0}, pattern=  LinePattern.Solid, thickness=  5.25, smooth=  Smooth.Bezier),Line(points=  {{-5.41311,21.0826},{-5.41311,-10.8262}}, color=  {255,0,0}, pattern=  LinePattern.Solid, thickness=  5.25, smooth=  Smooth.Bezier),Line(points=  {{47.5783,20.5128},{47.5783,-11.396}}, color=  {255,0,0}, pattern=  LinePattern.Solid, thickness=  5.25, smooth=  Smooth.Bezier)}));
     end HeatExchanger3;
 
     model HeatExchanger
@@ -1120,4 +1120,3 @@ package PJLoeslib
   end Kap18;
   annotation (uses(Modelica(version="3.2.1"), Thermo));
 end PJLoeslib;
-

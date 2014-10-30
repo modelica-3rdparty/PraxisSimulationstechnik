@@ -11,7 +11,7 @@ equation
   connect(force1.flange,spring1.flange_a) annotation(Line(points={{-28.7484,
           11.051},{-16.1151,11.051},{-16.1151,10.9353},{-16.0288,10.9353}}));
   connect(sine1.y,force1.f) annotation(Line(points = {{-71.2488,11.551},{-63.2488,11.551},{-63.2488,11.051},{-61.7484,11.051}}));
-  annotation(Diagram,   experiment(StartTime = 0.0, StopTime = 25, Tolerance = 0.000001),
+  annotation(experiment(StartTime = 0.0, StopTime = 25, Tolerance = 0.000001),
     uses(Modelica(version="3.2")));
 end FederDaempfer;
 

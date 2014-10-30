@@ -29,6 +29,6 @@ equation
   connect(inertia1.flange_b,clutch1.flange_a) annotation(Line(points = {{-53.1917,68.374},{-45.1149,68.374},{-45.1149,68.0867},{-45.3553,68.0867}}));
   connect(constanttorque1.flange,inertia1.flange_a) annotation(Line(points = {{-75.5753,68.6292},{-64.9425,68.6292},{-64.9425,68.374},{-65.1917,68.374}}));
   connect(constant1.y,clutch1.f_normalized) annotation(Line(points = {{-39.5297,81.2284},{-38.7931,81.2284},{-38.7931,74.6867},{-39.3553,74.6867}}));
-  annotation(Diagram,   experiment(StartTime = 0.0, StopTime = 25.0, Tolerance = 0.000001),
+  annotation(experiment(StartTime = 0.0, StopTime = 25.0, Tolerance = 0.000001),
     uses(Modelica(version="3.2")));
 end Triebstrang1;

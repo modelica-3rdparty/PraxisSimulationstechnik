@@ -37,7 +37,7 @@ package PJlib
       connect(CFIFR.out1,mult2divflow1.in1) annotation(Line(points = {{-33.2542,-63.0214},{-33.2542,-58.2613},{-42.2993,-58.2613},{-42.2993,-2.4228},{-42.1862,-2.4228}}));
       connect(mult2divflow1.in3,constantconverter1.out) annotation(Line(points = {{-25.3862,-2.4228},{-25.3862,-19.9525},{-0.7981,-19.9525},{-0.7981,-27.1069},{-0.7981,-27.1069}}));
       connect(constantconverter1.out,div2flow1.in2) annotation(Line(points = {{-0.7981,-27.1069},{-0.7981,-19.9525},{36.9786,-19.9525},{36.9786,-2.92637},{37.1259,-2.92637},{37.1259,-2.4228}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(extent=  {{-90,25},{90,-15}}, textString=  "Invest. Agrar", fontName=  "Times New Roman")}));
     end InvestAgrar;
@@ -71,7 +71,7 @@ package PJlib
       connect(u,mult3flow1.in2) annotation(Line(points = {{-106,33},{-87.1734,33},{-87.1734,44.4181},{-13.9002,44.4181},{-13.9002,44.4181}}));
       connect(POLCM.out1,mult3flow1.in3) annotation(Line(points = {{-72.209,14.6128},{-72.209,36.1045},{-13.9002,36.1045},{-13.9002,36.0181}}));
       connect(realinput1,POLCM.in1) annotation(Line(points = {{-106,-31},{-72.209,-31},{-72.209,-9.38717},{-72.209,-9.38717}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(extent=  {{-90,25},{90,-15}}, textString=  "Verschmutzung", fontName=  "Times New Roman")}));
     end Verschmutzung;
@@ -97,7 +97,7 @@ package PJlib
       connect(constantconverter2.out,mult5converter1.in4) annotation(Line(points = {{22.8789,-6.09026},{22.8789,2.66033},{5.05463,2.66033},{5.05463,20.19},{5.13397,20.19}}));
       connect(constantconverter1.out,mult5converter1.in2) annotation(Line(points = {{-20.7506,-5.02613},{-20.7506,2.66033},{-5.5867,2.66033},{-5.5867,20.19},{-5.66603,20.19}}));
       connect(FPCI.out1,mult5converter1.in3) annotation(Line(points = {{-0.266033,-35.3539},{-0.266033,19.6865},{-0.266033,19.6865},{-0.266033,20.19}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(extent=  {{-90,25},{90,-15}}, textString=  "Lebensm.Quote", fontName=  "Times New Roman")}));
     end LebensmittelQuote;
@@ -130,7 +130,7 @@ package PJlib
       connect(QLP.out1,multpower5converter1.in5) annotation(Line(points = {{56.6366,32.9881},{56.6366,32.9881},{10.6413,32.9881},{10.6413,56.9026},{10.534,56.9026}}));
       connect(QLC.out1,multpower5converter1.in1) annotation(Line(points = {{-62.4893,32.7221},{-62.4893,32.7221},{-10.9074,32.7221},{-10.9074,56.9026},{-11.066,56.9026}}));
       connect(realinput3,QLC.in1) annotation(Line(points = {{-106,33},{-86.9929,33},{-86.9929,32.7221},{-86.4893,32.7221}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
@@ -160,7 +160,7 @@ package PJlib
       connect(realinput2,ecirconverter1.in3) annotation(Line(points = {{-106,0},{-81.0444,0},{-81.0444,-18.1754},{6.47335,-18.1999},{6.4733,-18.1999}}));
       connect(div2converter1.in1,ecirconverter1.out1) annotation(Line(points = {{-57.1261,-56.6609},{-57.1261,-56.6119},{43.5018,-56.6119},{43.5018,-14.5999},{30.4733,-14.5999},{30.4733,-14.5999}}));
       connect(constantconverter2.out,div2converter1.in2) annotation(Line(points = {{-43.8814,-42.3099},{-43.8814,-42.3099},{-57.1261,-42.3099},{-57.1261,-42.2609}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
@@ -221,7 +221,7 @@ package PJlib
       connect(BR.in3,stock1.out2) annotation(Line(points = {{-32.3898,30.2806},{-32.3898,29.9851},{-37.4813,29.9851},{-37.4813,8.69565},{-29.3898,8.69565},{-29.3898,8.69565}}));
       connect(DRPM.out1,DR.in6) annotation(Line(points = {{4.4918,-36.5817},{4.4918,-36.5817},{-1.7991,-36.5817},{-1.7991,-30.5847},{-8.9895,-30.5847},{-8.9895,-30.8888}}));
       connect(DRFM.out1,DR.in5) annotation(Line(points = {{4.49175,-22.1889},{4.49175,-22.4888},{-8.9895,-22.4888},{-8.9895,-22.4888}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(extent=  {{-90,25},{90,-15}}, textString=  "Bevölkerung", fontName=  "Times New Roman")}));
     end Bevoelkerung;
@@ -253,7 +253,7 @@ package PJlib
       connect(constantconverter1.out,mult3flow1.in3) annotation(Line(points = {{-23.6295,10.9264},{-23.6295,11.1639},{-14.6128,11.315},{-14.6128,11.315}}));
       connect(cloudsource1.outflow,mult3flow1.inflow) annotation(Line(points = {{-2.54191,36.278},{-2.54191,36.4561},{-2.61283,31.715},{-2.61283,31.715}}));
       connect(mult3flow1.in1,u) annotation(Line(points = {{-14.6128,28.115},{-14.6128,27.791},{-25.1781,27.791},{-25.1781,70.0713},{-103.762,70.0713},{-103.762,70}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(extent=  {{-90,25},{90,-15}}, textString=  "Investitionen", fontName=  "Times New Roman")}));
     end Investitionen;
@@ -281,7 +281,7 @@ package PJlib
       connect(NRMM.in1,realinput1) annotation(Line(points = {{73.6238,33.0493},{73.6238,82.4412},{-73.7122,82.4412},{-73.7122,-32.9765},{-106,-32.9765},{-106,-33}}));
       connect(NRMM.out1,mult3flow1.in3) annotation(Line(points = {{49.6238,33.0493},{49.6238,32.9765},{11.2874,32.9765},{11.2874,32.8656}}));
       connect(constantconverter1.out,mult3flow1.in2) annotation(Line(points = {{26.2345,24.4656},{26.2345,24.4656},{11.2874,24.4656},{11.2874,24.4656}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(extent=  {{-90,25},{90,-15}}, textString=  "Nat. Rohstoffe", fontName=  "Times New Roman")}));
     end NatRohstoffe;
@@ -309,7 +309,7 @@ package PJlib
       connect(mult3flow1.in1,u) annotation(Line(points = {{11.2874,16.0656},{11.2874,15.5184},{21.0144,15.5184},{21.0144,75.0054},{-57.2239,75.0054},{-57.2239,33.2998},{-106,33.2998},{-106,33}}));
       connect(NRMM.in1,realinput1) annotation(Line(points = {{73.6238,33.0493},{73.6238,82.4412},{-73.7122,82.4412},{-73.7122,-32.9765},{-106,-32.9765},{-106,-33}}));
       connect(NRMM.out1,mult3flow1.in3) annotation(Line(points = {{49.6238,33.0493},{49.6238,32.9765},{11.2874,32.9765},{11.2874,32.8656}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(extent=  {{-90,25},{90,-15}}, textString=  "Nat. Rohstoffe (A)", fontName=  "Times New Roman")}));
     end NatRohstoffeA;
@@ -368,7 +368,7 @@ package PJlib
       connect(DRPM.in1,realinput2) annotation(Line(points = {{28.4918,-36.5817},{28.4918,-36.7126},{42.0333,-36.7126},{42.0333,-47.0879},{113.33,-47.0879},{106,33},{106,33}}));
       connect(BRFM.in1,realinput1) annotation(Line(points = {{28.4918,53.3733},{28.4918,53.5447},{78.7106,53.5447},{78.7106,65.9038},{106,66},{106,66}}));
       connect(DRFM.in1,realinput1) annotation(Line(points = {{28.4917,-22.1889},{28.4917,-21.9533},{38.0167,-21.9533},{38.0167,-61.0409},{121.566,-61.0409},{121.566,65.1041},{106,66},{106,66}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(extent=  {{-90,25},{90,-15}}, textString=  "Bevölkerung (A)", fontName=  "Times New Roman")}));
     end BevoelkerungA;
@@ -402,7 +402,7 @@ package PJlib
       connect(u,mult3flow1.in2) annotation(Line(points = {{-106,33},{-87.1734,33},{-87.1734,44.4181},{-13.9002,44.4181},{-13.9002,44.4181}}));
       connect(POLCM.out1,mult3flow1.in3) annotation(Line(points = {{-72.209,14.6128},{-72.209,36.1045},{-13.9002,36.1045},{-13.9002,36.0181}}));
       connect(realinput1,POLCM.in1) annotation(Line(points = {{-106,-31},{-72.209,-31},{-72.209,-9.38717},{-72.209,-9.38717}}));
-      annotation(Diagram,   Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
+      annotation(Icon(graphics={  Rectangle(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
                 lineThickness=                                                                                                    0.25, extent=  {{-100,-100},{100,100}}),Text(extent=  {{-90,25},{90,-15}}, textString=  "Verschmutzung (A)", fontName=  "Times New Roman")}));
     end VerschmutzungA;
@@ -426,7 +426,7 @@ package PJlib
       connect(capacitor1.n,constantcurrent1.p) annotation(Line(points = {{-28.49,-40.2051},{-28.49,-51.585},{-70.0288,-51.585},{-70.0288,7.4928},{-70.0288,7.4928}}));
       connect(constantcurrent1.n,resistor1.p) annotation(Line(points = {{-70.0527,31.6482},{-70.0527,73.7752},{-28.5303,73.7752},{-28.5303,57.3487},{-28.5303,57.3487}}));
       connect(capacitor1.p,resistor1.n) annotation(Line(points = {{-28.49,-16.2051},{-28.49,34.2939},{-28.8184,34.2939},{-28.8184,34.2939}}));
-      annotation(Diagram,   Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true, grid = {2,2}), graphics={  Line(origin=  {-5.4755,5.4755}, rotation=  -180, points=  {{-2.5641,62.3735},{-2.5641,86.911}}, smooth=  Smooth.Bezier),Ellipse(origin=  {-5.18732,6.05187}, rotation=  -180, extent=  {{37.6068,-54.7009},{-41.5954,19.3732}}, endAngle=  360),Ellipse(origin=  {-5.18732,6.05187}, rotation=  -180, extent=  {{35.8974,-13.1054},{-40.4558,61.5385}}, endAngle=  360),Line(origin=  {-0.288184,144.669}, points=  {{-2.5641,-57.5499},{-2.5641,-82.6408}}, smooth=  Smooth.Bezier)}));
+      annotation(Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true, grid = {2,2}), graphics={  Line(origin=  {-5.4755,5.4755}, rotation=  -180, points=  {{-2.5641,62.3735},{-2.5641,86.911}}, smooth=  Smooth.Bezier),Ellipse(origin=  {-5.18732,6.05187}, rotation=  -180, extent=  {{37.6068,-54.7009},{-41.5954,19.3732}}, endAngle=  360),Ellipse(origin=  {-5.18732,6.05187}, rotation=  -180, extent=  {{35.8974,-13.1054},{-40.4558,61.5385}}, endAngle=  360),Line(origin=  {-0.288184,144.669}, points=  {{-2.5641,-57.5499},{-2.5641,-82.6408}}, smooth=  Smooth.Bezier)}));
     end Stromquelle;
 
     model Elektromotor
@@ -2606,7 +2606,7 @@ package PJlib
 
       end for;
       y = if not allowOutOfRange or index > 0 and index <= nin then k * u else outOfRangeValue;
-      annotation(Diagram,   Icon);
+      annotation(Icon);
     end Extractor;
 
     model OttoSteuerung
@@ -2889,4 +2889,3 @@ package PJlib
   end Kap18;
   annotation (uses(Modelica(version="3.2.1"), SystemDynamics, Thermo));
 end PJlib;
-

@@ -12,7 +12,7 @@ equation
           -12.1302,41.5749},{-12.4479,41.5749}}));
   connect(revolute1.frame_a,world.frame_b) annotation(Line(points={{-24.4479,
           29.5749},{-41.2229,29.5749},{-41.4736,29.5749}}));
-  annotation(Diagram,   experiment(StartTime = 0.0, StopTime = 20, Tolerance = 0.000001),
+  annotation(experiment(StartTime = 0.0, StopTime = 20, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end Pendel2;
 
