@@ -1,0 +1,61 @@
+   Lösungen der Aufgaben - OpenModelica-Modelle und Hilfsdateien
+   =============================================================
+
+Kap.12 System-Dynamics-Diagramme
+
+Jagd.mo                   K12.2, A33
+Raeuberbeute3.mo          K12.3, A35
+World2C.mo		  K12.4, A36
+World2D.mo		  K12.4, A36
+World2E.mo		  K12.4, A36
+Bediener1.mo		  K12.5, A37
+Bediener2.mo		  K12.5, A37
+Bediener3.mo		  K12.5, A37
+
+
+Kap.13 Bondgraphen
+
+BondEMotor.mo		  K13.3.2, A39
+
+
+Kap.14 Erste Schritte mit Physikalischer Modellierung
+
+MassenKopplung.mo            K14.1, A45
+Kupplung.mo		     K14.2, A47
+HeatTransfer3A.mo	     K14.3, A48
+HeatTransfer3B.mo	     K14.3, A48
+HeatTransferFhf.mo	     K14.3, A48
+Hydraulik5.mo		     K14.4, A49
+
+
+Kap.15 Simulationsverfahren zur Physikalischen Modellierung
+
+
+Kap.16 Simulation eines Triebstrangs
+
+SchaltungA.mo	             K16.3, A54
+schaltung.txt                K16.5, A54
+SchaltungB.mo	             K16.3, A54
+ReifenTriebstrang.mo  	     K16.5, A56
+
+
+Kap.17 Mehrkörpersysteme
+
+Verladebruecke.mo            K17.1, A58
+ScaraA.mo		     K17.2, A60
+TestCurrentLimiter.mo	     K17.2, A60
+ScaraB.mo		     K17.2, A60
+karosserie2.mo		     K17.3, A61
+trebuchet3.msim		     K17.4, A62
+
+
+Kap.18 Entwicklung einer Thermodynamik-Bibliothek
+
+DieselA.mo                   K18.1, A63
+DieselB.mo		     K18.1, A63
+DieselC.mo		     K18.1, A63
+Ericsson1.mo		     K18.1, A65
+Ericsson2.mo		     K18.1, A65  -
+HeatTransfer4A.mo	     K18.3, A66  -
+HeatTransfer4B.mo	     K18.3, A66  -
+HeatTransfer4C.mo	     K18.3, A66  -

@@ -1,0 +1,47 @@
+within PraxisSimulationstechnik.Solutions;
+model Raeuberbeute3
+  SystemDynamics.Converters.ConstantConverter constantconverter1(constValue = 0.2) annotation(Placement(transformation(origin = {-48.8756,44.3778}, extent = {{-12,-12},{12,12}})));
+  SystemDynamics.Converters.ConstantConverter constantconverter5(constValue = 0.2) annotation(Placement(transformation(origin = {33.2834,-76.4618}, extent = {{-12,-12},{12,12}})));
+  SystemDynamics.Converters.ConstantConverter constantconverter6(constValue = 2) annotation(Placement(transformation(origin = {48.2759,-76.4618}, extent = {{-12,-12},{12,12}})));
+  SystemDynamics.Converters.ConstantConverter constantconverter2(constValue = 0.1) annotation(Placement(transformation(origin = {33.5832,41.6792}, extent = {{-12,-12},{12,12}})));
+  SystemDynamics.Flows.Mult2SubDiv2IFlow mult2subdiv2iflow1 annotation(Placement(transformation(origin = {37.1471,-41.6048}, extent = {{-12,-12},{12,12}})));
+  SystemDynamics.Reservoirs.StockD stockd1(m0 = 50) annotation(Placement(transformation(origin = {-5.69715,73.76309999999999}, extent = {{-12,-12},{12,12}})));
+  SystemDynamics.Flows.Mult2IFlow mult2iflow1 annotation(Placement(transformation(origin = {-42.9652,74.1301}, extent = {{-12,-12},{12,12}})));
+  SystemDynamics.Flows.Mult2AddIFlow mult2addiflow1 annotation(Placement(transformation(origin = {33.5855,73.52500000000001}, extent = {{-12,-12},{12,12}})));
+  SystemDynamics.Flows.Mult2IFlow mult2iflow2 annotation(Placement(transformation(origin = {-42.6626,-42.0575}, extent = {{-12,-12},{12,12}})));
+  SystemDynamics.Converters.ConstantConverter constantconverter4(constValue = 0.1) annotation(Placement(transformation(origin = {-48.573,-76.4455}, extent = {{-12,-12},{12,12}})));
+  SystemDynamics.Reservoirs.CloudSource cloudsource1 annotation(Placement(transformation(origin = {-79.32640000000001,73.91419999999999}, extent = {{-9.9373,-9.9373},{9.9373,9.9373}})));
+  SystemDynamics.Reservoirs.CloudSink cloudsink1 annotation(Placement(transformation(origin = {72.44970000000001,73.3199}, extent = {{-9.05477,-9.05477},{9.05477,9.05477}})));
+  SystemDynamics.Reservoirs.CloudSink cloudsink2 annotation(Placement(transformation(origin = {75.32170000000001,-41.1271}, extent = {{-9.305160000000001,-9.305160000000001},{9.305160000000001,9.305160000000001}})));
+  SystemDynamics.Reservoirs.CloudSource cloudsource2 annotation(Placement(transformation(origin = {-76.04640000000001,-42.1573}, extent = {{-9.13955,-9.13955},{9.13955,9.13955}})));
+  SystemDynamics.Converters.Mult2GraphConverter faengeProRaeuber(table = "fpr", file = "faengeProRaeuber.txt") annotation(Placement(transformation(origin = {-11.994,17.0915}, extent = {{-12,-12},{12,12}}, rotation = -90)));
+  SystemDynamics.Converters.Mult2Converter mult2converter2 annotation(Placement(transformation(origin = {19.7901,9.5952}, extent = {{-12,-12},{12,12}}, rotation = -90)));
+  SystemDynamics.Converters.ConstantConverter constantconverter3(constValue = 0.01) annotation(Placement(transformation(origin = {-45.272,9.59248}, extent = {{-12,-12},{12,12}}, rotation = -90)));
+  SystemDynamics.Reservoirs.StockD stockd2(m0 = 20) annotation(Placement(transformation(origin = {-2.3988,-41.391}, extent = {{-12,-12},{12,12}})));
+equation
+  connect(mult2subdiv2iflow1.inflow,stockd2.outflow) annotation(Line(points = {{25.1471,-41.6048},{9.895049999999999,-41.6048},{9.6012,-41.6792},{9.6012,-41.391}}));
+  connect(mult2subdiv2iflow1.in1,stockd2.out2) annotation(Line(points = {{26.3471,-53.6048},{26.3471,-63.5682},{-2.3988,-63.5682},{-2.3988,-50.391},{-2.3988,-50.391}}));
+  connect(mult2converter2.in2,stockd2.out1) annotation(Line(points = {{7.7901,2.3952},{7.7901,2.42057},{-2.42057,2.42057},{-2.3988,-32.6792},{-2.3988,-32.391}}));
+  connect(mult2iflow2.outflow,stockd2.inflow) annotation(Line(points = {{-30.6626,-42.0575},{-14.2209,-42.0575},{-14.3988,-41.6792},{-14.3988,-41.391}}));
+  connect(mult2iflow2.in2,stockd2.out2) annotation(Line(points = {{-36.6626,-54.0575},{-36.6626,-63.5401},{-2.42057,-63.5401},{-2.42057,-50.391},{-2.3988,-50.391}}));
+  connect(constantconverter3.out,faengeProRaeuber.in2) annotation(Line(points = {{-33.272,9.59248},{-33.272,9.6823},{-23.994,9.891500000000001},{-23.994,9.891500000000001}}));
+  connect(mult2subdiv2iflow1.in3,mult2converter2.out1) annotation(Line(points = {{40.7471,-53.6048},{40.7471,-60.5697},{54.5727,-60.5697},{54.5727,9.295349999999999},{31.7901,9.295349999999999},{31.7901,9.5952}}));
+  connect(faengeProRaeuber.out1,mult2converter2.in1) annotation(Line(points = {{0.00599957,17.0915},{0.00599957,16.944},{7.7901,16.7952},{7.7901,16.7952}}));
+  connect(mult2addiflow1.in3,mult2converter2.out1) annotation(Line(points = {{41.9855,61.525},{41.9855,47.2012},{54.4629,47.2012},{54.4629,9.37973},{31.7901,9.37973},{31.7901,9.5952}}));
+  connect(faengeProRaeuber.in1,stockd1.out2) annotation(Line(points = {{-23.994,24.2915},{-23.994,24.5083},{-36.9137,24.5083},{-36.9137,55.3707},{-5.74887,55.3707},{-5.74887,64.76309999999999},{-5.69715,64.76309999999999}}));
+  connect(mult2iflow2.inflow,cloudsource2.outflow) annotation(Line(points = {{-54.6626,-42.0575},{-64.7504,-42.0575},{-66.9068,-42.2869},{-66.9068,-42.1573}}));
+  connect(cloudsink2.inflow,mult2subdiv2iflow1.outflow) annotation(Line(points = {{66.0166,-41.1271},{49.4753,-41.1271},{49.4753,-41.6048},{49.1471,-41.6048}}));
+  connect(mult2addiflow1.outflow,cloudsink1.inflow) annotation(Line(points = {{45.5855,73.52500000000001},{65.6581,73.52500000000001},{63.3949,73.10550000000001},{63.3949,73.3199}}));
+  connect(mult2iflow1.inflow,cloudsource1.outflow) annotation(Line(points = {{-54.9652,74.1301},{-69.289,74.1301},{-69.3891,74.2942},{-69.3891,73.91419999999999}}));
+  connect(mult2iflow2.in1,constantconverter4.out) annotation(Line(points = {{-48.6626,-54.0575},{-48.6626,-64.7504},{-48.573,-64.7504},{-48.573,-64.4455}}));
+  connect(mult2addiflow1.in1,stockd1.out2) annotation(Line(points = {{25.1855,61.525},{25.1855,55.3707},{-5.74887,55.3707},{-5.74887,64.76309999999999},{-5.69715,64.76309999999999}}));
+  connect(constantconverter2.out,mult2addiflow1.in2) annotation(Line(points = {{33.5832,53.6792},{33.5832,61.7247},{33.5855,61.7247},{33.5855,61.525}}));
+  connect(mult2addiflow1.inflow,stockd1.outflow) annotation(Line(points = {{21.5855,73.52500000000001},{6.65658,73.52500000000001},{6.65658,73.76309999999999},{6.30285,73.76309999999999}}));
+  connect(mult2iflow1.in2,stockd1.out2) annotation(Line(points = {{-36.9652,62.1301},{-36.9652,55.3707},{-5.74887,55.3707},{-5.74887,64.76309999999999},{-5.69715,64.76309999999999}}));
+  connect(mult2iflow1.in1,constantconverter1.out) annotation(Line(points = {{-48.9652,62.1301},{-48.9652,55.6732},{-48.8756,55.6732},{-48.8756,56.3778}}));
+  connect(mult2iflow1.outflow,stockd1.inflow) annotation(Line(points = {{-30.9652,74.1301},{-17.5492,74.1301},{-17.5492,73.76309999999999},{-17.6972,73.76309999999999}}));
+  connect(constantconverter6.out,mult2subdiv2iflow1.in4) annotation(Line(points = {{48.2759,-64.4618},{48.2759,-53.973},{47.9471,-53.973},{47.9471,-53.6048}}));
+  connect(constantconverter5.out,mult2subdiv2iflow1.in2) annotation(Line(points = {{33.2834,-64.4618},{33.2834,-53.973},{33.5471,-53.973},{33.5471,-53.6048}}));
+  annotation(experiment(StartTime = 0.0, StopTime = 70.0, Tolerance = 1e-06));
+end Raeuberbeute3;
+

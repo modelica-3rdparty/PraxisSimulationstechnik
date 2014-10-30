@@ -1,0 +1,123 @@
+   Zuordnung der OpenModelica-Modelle und Hilfsdateien
+   ===================================================
+
+Kap.12 System-Dynamics-Diagramme
+
+SystemDynamics.mo            K12.1
+PJlib.mo		     K12.1
+Zufluss.mo		     K12.1
+Abfluss.mo		     K12.1
+Bevoelkerung1.mo	     K12.2
+Bevoelkerung2.mo	     K12.2
+Bevoelkerung3.mo	     K12.2
+Raeuberbeute1.mo	     K12.3
+Raeuberbeute2A.mo	     K12.3
+Raeuberbeute2B.mo	     K12.3
+faengeProRaeuber.txt	     K12.3
+World2B.mo		     K12.4
+world2.txt		     K12.4
+TestConveyor.mo		     K12.5
+TestOven.mo		     K12.5
+Fertigung.mo		     K12.5
+
+
+Kap.13 Bondgraphen
+
+BondLib.mo                   K13.1
+BondRCKreis.mo		     K13.1
+BondRLCKreis.mo		     K13.3
+Wheatstone.mo		     K13.3
+BondSchwing2M.mo	     K13.4
+BondHydraulik1.mo	     K13.5
+BondHydraulik2.mo	     K13.5
+BondHydraulik3.mo	     K13.5
+BondHydraulik4.mo	     K13.5
+BondAkausal		     K13.6
+
+
+Kap.14 Erste Schritte mit Physikalischer Modellierung
+
+Schwinger1M.mo               K14.1
+Schwinger2M.mo		     K14.2
+HeatTransfer1.mo	     K14.2
+HeatTransfer2.mo	     K14.2
+EMotor1.mo		     K14.3
+EMotor2.mo		     K14.3
+EMotor3A.mo		     K14.3
+EMotor3B.mo		     K14.3
+Hydraulik1.mo		     K14.4
+Hydraulik2.mo		     K14.4
+Hydraulik3A.mo		     K14.4
+Hydraulik3B.mo		     K14.4
+Hydraulik3C.mo		     K14.4
+Hydraulik4.mo		     K14.4
+
+
+Kap.15 Simulationsverfahren zur Physikalischen Modellierung
+
+FederKopplung.mo             K15.2
+FederDaempfer.mo	     K15.4
+
+
+Kap.16 Simulation eines Triebstrangs
+
+Triebstrang1A.mo             K16.1
+Triebstrang1B.mo             K16.1
+Triebstrang2.mo              K16.2
+gaspedal.txt		     K16.2
+motorkennfeld.txt	     K16.2
+Triebstrang3A.mo 	     K16.3
+schaltgetriebe.txt	     K16.3
+kupplung.txt		     K16.3
+Triebstrang3B.mo 	     K16.3
+Triebstrang4.mo 	     K16.4
+Triebstrang5.mo 	     K16.5
+icon-karosserie.png	     K16.5
+Triebstrang6B.mo	     K16.6
+Triebstrang6C.mo	     K16.6
+
+
+Kap.17 Mehrkörpersysteme
+
+Pendel1.mo                   K17.1
+Pendel2.mo		     K17.1
+Pendel3.mo		     K17.1
+Zweiachsenroboter1.mo	     K17.2
+Zweiachsenroboter2.mo	     K17.2
+Zweiachsenroboter3.mo	     K17.2
+Zweiachsenroboter4.mo	     K17.2
+Viertelwagen1d.mo	     K17.3
+ViertelwagenMbsA.mo	     K17.3
+ViertelwagenMbsB.mo	     K17.3
+ViertelwagenMbsC.mo	     K17.3
+ViertelwagenMbsD.mo	     K17.3
+Karosserie1A.mo 	     K17.3
+Karosserie1B.mo 	     K17.3
+Karosserie1C.mo		     K17.3
+Karosserie1D.mo 	     K17.3
+Karosserie1E.mo 	     K17.3
+Karosserie1F.mo		     K17.3
+Trebuchet1.mo		     K17.4
+Trebuchet2A.mo		     K17.4
+Trebuchet2B.mo		     K17.4
+
+
+Kap.18 Entwicklung einer Thermodynamik-Bibliothek
+
+Thermo.mo                    K18.1
+ClosedSystem.mo		     K18.1
+Otto1.mo		     K18.1
+Joule1.mo		     K18.2
+Joule2.mo		     K18.2
+Otto2.mo		     K18.3
+Joule3.mo		     K18.3
+TestHeater1.mo		     K18.3
+TestHeater2.mo		     K18.3
+TestHeater3.mo		     K18.3
+Joule4.mo		     K18.3
+TestHeater4A.mo		     K18.3
+TestHeater4B.mo		     K18.3
+TestPumpeA.mo		     K18.3
+TestPumpeB.mo		     K18.3
+Joule5A.mo		     K18.3
+Joule5B.mo		     K18.3

@@ -1,0 +1,36 @@
+within PraxisSimulationstechnik.Examples;
+model ViertelwagenMbsA
+  Modelica.Blocks.Sources.Sine sine1(amplitude = 0.05, freqHz = 100 / (2 * Modelica.Constants.pi), phase = Modelica.Constants.pi / 2) annotation(Placement(transformation(origin = {-79.8089,-24.7863}, extent = {{-12,-12},{12,12}})));
+  Modelica.Mechanics.Translational.Sources.Position position1(exact = true) annotation(Placement(transformation(origin = {-42.5287,-25}, extent = {{-12,-12},{12,12}})));
+  inner Modelica.Mechanics.MultiBody.World world(n = {0,0,-1}) annotation(Placement(transformation(origin = {5.12821,-59.2593}, extent={{-12,-12},
+            {12,12}},                                                                                                    rotation = 90)));
+  Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic1(useAxisFlange = true, n={0,0,1})
+                                                                                 annotation(Placement(transformation(origin = {4.2735,-27.0655}, extent={{-12,-12},
+            {12,12}},                                                                                                    rotation = 90)));
+  Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel springdamperparallel1(c = 180000) annotation(Placement(transformation(origin = {4.5584,7.40741}, extent = {{-12,12},{12,-12}}, rotation = -90)));
+  Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel springdamperparallel2(c = 27000, d = 2000) annotation(Placement(transformation(origin = {4.2735,45.2991}, extent = {{-12,12},{12,-12}}, rotation = -90)));
+  Modelica.Mechanics.MultiBody.Parts.Body body1(r_CM = {0,0,0}, m = 30, I_11 = 1, I_22 = 1, I_33 = 1) annotation(Placement(transformation(origin = {-30.1994,26.7806}, extent={{-12,12},
+            {12,-12}},                                                                                                    rotation = -180)));
+  Modelica.Mechanics.MultiBody.Parts.Body body2(r_CM = {0,0,0}, m = 1200, I_11 = 1, I_22 = 1, I_33 = 1) annotation(Placement(transformation(origin = {-29.3447,70.6553}, extent={{-12,12},
+            {12,-12}},                                                                                                    rotation = -180)));
+equation
+  connect(sine1.y,position1.s_ref) annotation(Line(points = {{-66.6089,-24.7863},{-58.046,-24.7863},{-58.046,-25},{-56.9287,-25}}));
+  connect(position1.flange,prismatic1.axis) annotation(Line(points={{-30.5287,
+          -25},{-19.5402,-25},{-19.5402,-17.5287},{-2.9265,-17.5287},{-2.9265,
+          -17.4655}}));
+  connect(position1.support,prismatic1.support) annotation(Line(points={{
+          -42.5287,-37},{-2.87356,-37},{-2.87356,-31.8655},{-2.9265,-31.8655}}));
+  connect(body2.frame_a,springdamperparallel2.frame_a) annotation(Line(points={{
+          -17.3447,70.6553},{4.8433,70.6553},{4.8433,57.2991},{4.2735,57.2991}}));
+  connect(body1.frame_a,springdamperparallel1.frame_a) annotation(Line(points={{
+          -18.1994,26.7806},{5.12821,26.7806},{5.12821,19.4074},{4.5584,19.4074}}));
+  connect(springdamperparallel2.frame_b,springdamperparallel1.frame_a) annotation(Line(points={{4.2735,
+          33.2991},{5.12821,33.2991},{5.12821,19.4074},{4.5584,19.4074}}));
+  connect(springdamperparallel1.frame_b,prismatic1.frame_b) annotation(Line(points={{4.5584,
+          -4.59259},{4.8433,-4.59259},{4.8433,-15.0655},{4.2735,-15.0655}}));
+  connect(world.frame_b,prismatic1.frame_a) annotation(Line(points={{5.12821,
+          -47.2593},{3.9886,-47.2593},{3.9886,-39.0655},{4.2735,-39.0655}}));
+  annotation(experiment(StartTime = 0.0, StopTime = 1.0, Tolerance = 0.000001), uses(
+        Modelica(version="3.2.1")));
+end ViertelwagenMbsA;
+

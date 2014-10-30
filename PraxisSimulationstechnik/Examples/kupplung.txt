@@ -1,0 +1,17 @@
+#1
+double kupplung1(3,2)   # anfahren
+  0.0  1.0
+  2.0  0.0
+100.0  0.0
+double kupplung2(4,2)   # ausrollen
+  0    0
+ 16    0
+ 16.1  1
+100    1
+double kupplung3(6,2)   # hochschalten
+0.0  1.0
+2.0  0.0
+5.0  0.0
+6.0  1.0
+7.0  0.0
+100.0  0.0
