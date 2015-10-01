@@ -943,20 +943,16 @@ package Converters
   equation
     connect(mult2Converter.in1, in1) annotation(Line(
       points={{-24,4},{-24,-7},{-58,-7},{-58,-66}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
     connect(mult2Converter.in2, in2) annotation(Line(
       points={{-12,4},{-12,-8},{38,-8},{38,-66}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
     connect(mult2Converter.out1, graphConverter.in1) annotation(Line(
       points={{-18,24},{-18,32}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
     connect(graphConverter.out1, out1) annotation(Line(
       points={{-18,52},{-18,90}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
     annotation(
       Icon(coordinateSystem(
          preserveAspectRatio=true,

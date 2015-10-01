@@ -43,18 +43,13 @@ equation
   connect(springdamper1.flange_b,differentialgetriebe1.flange_a) annotation(Line(points = {{-62.2825,-7.17818},{-51.7986,-7.17818},{-51.7986,-7.19425},{-52.9065,-7.19425}}));
   connect(motor1.flange_b,kupplung1.flange_a) annotation(Line(points = {{-57.3238,29.3956},{-42.0144,29.3956},{-42.0144,29.3526},{-46.8633,29.3526}}));
   connect(kupplung1.flange_b, schaltgetriebe.flange_a) annotation (Line(
-      points={{-34.8633,29.3526},{-29.4317,29.3526},{-29.4317,29},{-24,29}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-34.8633,29.3526},{-29.4317,29.3526},{-29.4317,29},{-24,29}}));
   connect(constant2.y, schaltgetriebe.u) annotation (Line(
       points={{-17.1367,67.9324},{-17.1367,51.9662},{-17,51.9662},{-17,36}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(schaltgetriebe.flange_b, springdamper1.flange_a) annotation (Line(
       points={{-10,29},{-6,29},{-6,14},{-78,14},{-78,-7.17818},{-74.2825,
-          -7.17818}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -7.17818}}));
   annotation(                        experiment(StartTime = 0.0, StopTime = 7, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end ReifenTriebstrang;

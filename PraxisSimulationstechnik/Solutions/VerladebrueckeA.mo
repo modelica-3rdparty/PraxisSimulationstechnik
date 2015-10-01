@@ -24,12 +24,10 @@ equation
       points={{11.7939,10.5116},{11.7939,29.3723},{38.5402,29.3723},{38.5402,
           28.9959}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic1.frame_b, body1.frame_a) annotation (Line(
       points={{-3.2716,28.9959},{38.5402,28.9959}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation(experiment(StartTime = 0.0, StopTime = 20.0, Tolerance = 0.000001),    uses(Modelica(version="3.2.1")));
 end VerladebrueckeA;

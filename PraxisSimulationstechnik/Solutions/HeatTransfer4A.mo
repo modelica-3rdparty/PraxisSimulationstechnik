@@ -69,19 +69,13 @@ equation
           60.6838},{-33.046,60.6838},{-33.046,60.3989},{-32.5128,60.3989}}));
   connect(heater4.inflow, fluidsourceph1.outflow) annotation (Line(
       points={{70.9744,60.3989},{78.4872,60.3989},{78.4872,60.3964},{85.3147,
-          60.3964}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          60.3964}}));
   connect(stateMeasurement.inflow, fluidsourceph1.outflow) annotation (Line(
       points={{78,70},{78,60},{78.4872,60.3989},{78.4872,60.3964},{85.3147,
-          60.3964}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          60.3964}}));
   connect(stateMeasurement1.inflow, heater5.inflow) annotation (Line(
       points={{-80,-32},{-80,-24},{-72.1264,-24},{-72.1264,-22.7011},{-71.7701,
-          -22.7011}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -22.7011}}));
   annotation(experiment(StartTime = 0.0, StopTime = 10, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end HeatTransfer4A;

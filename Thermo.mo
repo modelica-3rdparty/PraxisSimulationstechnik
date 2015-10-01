@@ -204,11 +204,9 @@ package Thermo "small library for thermodynamical processes"
       Ellipse(extent={{-100,100},{100,-100}},
        lineColor={0,0,0}),
              Line(points={{-77,64},{94,34}},
-    thickness=1,
-    color={0,0,0}),
+    thickness=1),
              Line(points={{-77,-64},{94,-34}},
-    thickness=1,
-    color={0,0,0})}));
+    thickness=1)}));
     end Pump;
 
     model Turbine
@@ -219,17 +217,13 @@ package Thermo "small library for thermodynamical processes"
            extent={{-100,-100},{100,100}}),
            graphics={
              Line(points={{-100,40},{100,40},{60,-40},{-60,-40},{-100,40}},
-    thickness=1,
-    color={0,0,0}),
+    thickness=1),
              Line(points={{0,40},{0,100}},
-    thickness=2,
-    color={0,0,0}),
+    thickness=2),
              Line(points={{-100,0},{-80,0}},
-    thickness=1,
-    color={0,0,0}),
+    thickness=1),
              Line(points={{80,0},{100,0}},
-    thickness=1,
-    color={0,0,0})}));
+    thickness=1)}));
     end Turbine;
 
     model Heater "machine that transfers heat to a fluid"
@@ -249,8 +243,7 @@ package Thermo "small library for thermodynamical processes"
            extent={{-100,-100},{100,100}}),
            graphics={
              Line(points={{-100,0},{0,100},{0,-100},{100,0}},
-    thickness=1,
-    color={0,0,0}),
+    thickness=1),
              Rectangle(extent={{-100,-100},{100,100}},
          lineColor={0,0,0},
          lineThickness=1)}));
@@ -326,7 +319,7 @@ package Thermo "small library for thermodynamical processes"
            preserveAspectRatio=true,
            extent={{-100,-100},{100,100}}),
            graphics={
-             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+             Line(points={{-70,0},{-90,0}}),
              Line(points={{70,0},{100,0}}, color={0,0,127}),
              Text(extent={{150,80},{-150,120}},
     textString="%name",
@@ -335,12 +328,12 @@ package Thermo "small library for thermodynamical processes"
        lineColor={0,0,0},
        fillColor={255,255,255},
        fillPattern=FillPattern.Solid),
-             Line(points={{0,70},{0,40}}, color={0,0,0}),
-             Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-             Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-             Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-             Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-             Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
+             Line(points={{0,70},{0,40}}),
+             Line(points={{22.9,32.8},{40.2,57.3}}),
+             Line(points={{-22.9,32.8},{-40.2,57.3}}),
+             Line(points={{37.6,13.7},{65.8,23.9}}),
+             Line(points={{-37.6,13.7},{-65.8,23.9}}),
+             Line(points={{0,0},{9.02,28.6}}),
              Polygon(points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
        lineColor={0,0,0},
        fillColor={0,0,0},
@@ -376,7 +369,7 @@ package Thermo "small library for thermodynamical processes"
            preserveAspectRatio=true,
            extent={{-100,-100},{100,100}}),
            graphics={
-             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+             Line(points={{-70,0},{-90,0}}),
              Line(points={{70,0},{100,0}}, color={0,0,127}),
              Text(extent={{150,80},{-150,120}},
     textString="%name",
@@ -385,12 +378,12 @@ package Thermo "small library for thermodynamical processes"
        lineColor={0,0,0},
        fillColor={255,255,255},
        fillPattern=FillPattern.Solid),
-             Line(points={{0,70},{0,40}}, color={0,0,0}),
-             Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-             Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-             Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-             Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-             Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
+             Line(points={{0,70},{0,40}}),
+             Line(points={{22.9,32.8},{40.2,57.3}}),
+             Line(points={{-22.9,32.8},{-40.2,57.3}}),
+             Line(points={{37.6,13.7},{65.8,23.9}}),
+             Line(points={{-37.6,13.7},{-65.8,23.9}}),
+             Line(points={{0,0},{9.02,28.6}}),
              Polygon(points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
        lineColor={0,0,0},
        fillColor={0,0,0},
@@ -498,8 +491,7 @@ package Thermo "small library for thermodynamical processes"
            graphics={
              Line(points={{-60,-60},{-20,-60},{-20,0},{20,0},{20,60},
      {60,60},{60,-60}},
-    thickness=1,
-    color={0,0,0}),
+    thickness=1),
              Rectangle(extent={{-100,-100},{100,100}},
          lineColor={0,0,0},
          lineThickness=1)}));
@@ -529,15 +521,12 @@ package Thermo "small library for thermodynamical processes"
                 lineThickness=1),
               Line(
                 points={{-80,0},{80,0}},
-                color={0,0,0},
                 thickness=0.5),
               Line(
                 points={{0,-80},{0,80}},
-                color={0,0,0},
                 thickness=0.5),
               Line(
                 points={{-80,-30},{80,60}},
-                color={0,0,0},
                 thickness=1),
              Ellipse(
                 extent={{-58.3,-20},{-48.3,-10}},
@@ -882,11 +871,9 @@ package Thermo "small library for thermodynamical processes"
       Ellipse(extent={{-100,100},{100,-100}},
        lineColor={0,0,0}),
              Line(points={{-77,64},{94,34}},
-    thickness=1,
-    color={0,0,0}),
+    thickness=1),
              Line(points={{-77,-64},{94,-34}},
-    thickness=1,
-    color={0,0,0})}));
+    thickness=1)}));
     end Pump;
 
     model Turbine
@@ -897,17 +884,13 @@ package Thermo "small library for thermodynamical processes"
            extent={{-100,-100},{100,100}}),
            graphics={
              Line(points={{-100,40},{100,40},{60,-40},{-60,-40},{-100,40}},
-    thickness=1,
-    color={0,0,0}),
+    thickness=1),
              Line(points={{0,40},{0,100}},
-    thickness=2,
-    color={0,0,0}),
+    thickness=2),
              Line(points={{-100,0},{-80,0}},
-    thickness=1,
-    color={0,0,0}),
+    thickness=1),
              Line(points={{80,0},{100,0}},
-    thickness=1,
-    color={0,0,0})}));
+    thickness=1)}));
     end Turbine;
 
     model Heater "machine that transfers heat to a fluid"
@@ -932,8 +915,7 @@ package Thermo "small library for thermodynamical processes"
            extent={{-100,-100},{100,100}}),
            graphics={
              Line(points={{-100,0},{0,100},{0,-100},{100,0}},
-    thickness=1,
-    color={0,0,0}),
+    thickness=1),
              Rectangle(extent={{-100,-100},{100,100}},
          lineColor={0,0,0},
          lineThickness=1)}));
@@ -1037,7 +1019,7 @@ package Thermo "small library for thermodynamical processes"
            preserveAspectRatio=true,
            extent={{-100,-100},{100,100}}),
            graphics={
-             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+             Line(points={{-70,0},{-90,0}}),
              Line(points={{70,0},{100,0}}, color={0,0,127}),
              Text(extent={{150,80},{-150,120}},
     textString="%name",
@@ -1046,12 +1028,12 @@ package Thermo "small library for thermodynamical processes"
        lineColor={0,0,0},
        fillColor={255,255,255},
        fillPattern=FillPattern.Solid),
-             Line(points={{0,70},{0,40}}, color={0,0,0}),
-             Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-             Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-             Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-             Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-             Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
+             Line(points={{0,70},{0,40}}),
+             Line(points={{22.9,32.8},{40.2,57.3}}),
+             Line(points={{-22.9,32.8},{-40.2,57.3}}),
+             Line(points={{37.6,13.7},{65.8,23.9}}),
+             Line(points={{-37.6,13.7},{-65.8,23.9}}),
+             Line(points={{0,0},{9.02,28.6}}),
              Polygon(points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
        lineColor={0,0,0},
        fillColor={0,0,0},

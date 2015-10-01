@@ -13,12 +13,10 @@ equation
   connect(sinevoltage1.n, currentlimiter1.n) annotation (Line(
       points={{-64.0805,8.977},{-64.0805,-6},{-2,-6},{-2.29885,6.89655},{
           -2.73357,6.89655},{-2.73357,6.9139}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(sinevoltage1.p, resistor1.p) annotation (Line(
       points={{-64.0805,32.977},{-64.0805,52.5862},{-42.1724,52.5862}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   annotation(experiment(StartTime = 0.0, StopTime = 2, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end TestCurrentLimiter;

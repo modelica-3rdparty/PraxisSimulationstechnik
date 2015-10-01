@@ -35,39 +35,26 @@ equation
   connect(springdamper1.flange_b,differentialgetriebe1.flange_a) annotation(Line(points = {{-62.2825,-7.17818},{-51.7986,-7.17818},{-51.7986,-7.19425},{-52.9065,-7.19425}}));
   connect(motor1.flange_b,kupplung1.flange_a) annotation(Line(points = {{-57.3238,29.3956},{-42.0144,29.3956},{-42.0144,29.3526},{-46.8633,29.3526}}));
   connect(springdamper2.flange_b, idealrollingwheel1.flangeR) annotation (Line(
-      points={{-13.1654,5.741},{-5.71224,5.741}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-13.1654,5.741},{-5.71224,5.741}}));
   connect(springdamper2.flange_a, differentialgetriebe1.flange_b) annotation (
       Line(
       points={{-25.1654,5.741},{-32.5827,5.741},{-32.5827,-4.19425},{-40.9065,
-          -4.19425}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -4.19425}}));
   connect(springdamper3.flange_b, idealrollingwheel2.flangeR) annotation (Line(
-      points={{-13.1654,-18.259},{-5.71224,-18.259}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-13.1654,-18.259},{-5.71224,-18.259}}));
   connect(springdamper3.flange_a, differentialgetriebe1.flange_b1) annotation (
       Line(
       points={{-25.1654,-18.259},{-32.5827,-18.259},{-32.5827,-10.1943},{
-          -40.9065,-10.1943}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -40.9065,-10.1943}}));
   connect(kupplung1.flange_b, schaltgetriebe1.flange_a) annotation (Line(
-      points={{-34.8633,29.3526},{-17.8675,29.3526}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-34.8633,29.3526},{-17.8675,29.3526}}));
   connect(schaltgetriebe1.flange_b, springdamper1.flange_a) annotation (Line(
       points={{-5.8675,29.3526},{0,29.3526},{0,18},{-80.2825,18},{-80.2825,
-          -7.17818},{-74.2825,-7.17818}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -7.17818},{-74.2825,-7.17818}}));
   connect(constant2.y, schaltgetriebe1.u) annotation (Line(
       points={{-11.8674,69.6478},{-11.8674,47.8239},{-11.8675,47.8239},{
           -11.8675,35.3526}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation(                        experiment(StartTime = 0.0, StopTime = 30, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end Triebstrang5;

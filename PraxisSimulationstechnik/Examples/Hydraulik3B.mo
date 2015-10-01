@@ -17,7 +17,7 @@ model Hydraulik3B
     piston.f = -A * (p - pa);
     der(p) = K / (V0 + A * s) * (inflow.q - A * v);
     der(s) = v;
-    annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {Line(points = {{60,60},{-90,60},{-90,-60},{60,-60}}, color = {0,0,0}),Line(points = {{20,60},{20,-60}}, color = {0,0,0}),Line(points = {{-50,100},{-50,60}}, color = {0,0,0}),Line(points = {{20,0},{100,0}}, color = {0,0,0}),Rectangle(extent = {{-100,-100},{100,100}}, lineColor = {0,0,0}),Rectangle(extent = {{-90,-60},{20,60}}, lineColor = {0,0,0}, fillColor = {83,233,255}, fillPattern = FillPattern.Solid)}));
+    annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {Line(points = {{60,60},{-90,60},{-90,-60},{60,-60}}),Line(points = {{20,60},{20,-60}}),Line(points = {{-50,100},{-50,60}}),Line(points = {{20,0},{100,0}}),Rectangle(extent = {{-100,-100},{100,100}}, lineColor = {0,0,0}),Rectangle(extent = {{-90,-60},{20,60}}, lineColor = {0,0,0}, fillColor = {83,233,255}, fillPattern = FillPattern.Solid)}));
   end CompressibleCylinder;
   PJlib.Hydraulik.Components.FlowSource flowsource1 annotation(Placement(transformation(origin = {-41.5954,59.8291}, extent = {{-12,-12},{12,12}})));
   PJlib.Hydraulik.Components.LaminarFlow laminarflow1(R = 80000000.0) annotation(Placement(transformation(origin = {-11.396,60.114}, extent = {{-12,-12},{12,12}})));

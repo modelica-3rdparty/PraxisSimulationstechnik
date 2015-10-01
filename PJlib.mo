@@ -461,7 +461,7 @@ package PJlib
       connect(inductor1.n,emf1.p) annotation(Line(points = {{-41.1741,70.3924},{-27.8531,70.3924},{-27.8531,31.4994},{-28.0759,31.4994}}));
       annotation(experiment(StartTime = 0.0, StopTime = 10.0, Tolerance = 0.000001), Diagram,   Icon(graphics={  Ellipse(lineColor=  {0,0,0}, fillColor=  {0,0,0}, pattern=  LinePattern.Solid,
                 fillPattern=                                                                                                    FillPattern.None,
-                lineThickness=                                                                                                    1.25, extent=  {{-47.8632,52.9915},{53.5613,-45.584}}),Line(points=  {{2.849,54.9858},{2.849,87.4644},{2.849,87.4644}}, color=  {0,0,0}, pattern=  LinePattern.Solid, thickness=  0.25, smooth=  Smooth.Bezier),Line(points=  {{3.1339,-47.8632},{3.1339,-86.3248}}, color=  {0,0,0}, pattern=  LinePattern.Solid, thickness=  0.25, smooth=  Smooth.Bezier),Line(points=  {{56.4103,3.7037},{88.3191,3.7037}}, color=  {0,0,0}, pattern=  LinePattern.Solid, thickness=  2.75, smooth=  Smooth.Bezier)}));
+                lineThickness=                                                                                                    1.25, extent=  {{-47.8632,52.9915},{53.5613,-45.584}}),Line(points=  {{2.849,54.9858},{2.849,87.4644},{2.849,87.4644}}, pattern=  LinePattern.Solid, thickness=  0.25, smooth=  Smooth.Bezier),Line(points=  {{3.1339,-47.8632},{3.1339,-86.3248}}, pattern=  LinePattern.Solid, thickness=  0.25, smooth=  Smooth.Bezier),Line(points=  {{56.4103,3.7037},{88.3191,3.7037}}, pattern=  LinePattern.Solid, thickness=  2.75, smooth=  Smooth.Bezier)}));
     end Elektromotor;
   end Kap14;
 
@@ -498,7 +498,7 @@ package PJlib
         inflow.q + outflow.q = 0;
         inflow.q = Q;
         annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Ellipse(extent=  {{-50,-50},{50,50}}, lineColor=  {0,0,0}),Polygon(points=  {{12,25},{50,0},{12,-25},{12,25}}, lineColor=  {0,0,0}, fillColor=  {0,0,128},
-                  fillPattern=                                                                                                    FillPattern.Solid),Line(points=  {{-100,0},{-50,0}}, color=  {0,0,0}),Line(points=  {{50,0},{100,0}}, color=  {0,0,0})}));
+                  fillPattern=                                                                                                    FillPattern.Solid),Line(points=  {{-100,0},{-50,0}}),Line(points=  {{50,0},{100,0}})}));
       end FlowSource;
 
       model AmbientPressure "constant athmospheric pressure"
@@ -516,7 +516,7 @@ package PJlib
       equation
         inflow.q + outflow.q = 0;
         inflow.p - outflow.p = R * inflow.q;
-        annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Line(points=  {{-100,0},{100,0}}, color=  {0,0,0}),Line(points=  {{-80,40},{-50,20},{-20,10},{20,10},{50,20},{80,40}}, color=  {0,0,0}),Line(points=  {{-80,-40},{-50,-20},{-20,-10},{20,-10},{50,-20},{80,-40}}, color=  {0,0,0})}));
+        annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Line(points=  {{-100,0},{100,0}}),Line(points=  {{-80,40},{-50,20},{-20,10},{20,10},{50,20},{80,40}}),Line(points=  {{-80,-40},{-50,-20},{-20,-10},{20,-10},{50,-20},{80,-40}})}));
       end LaminarFlow;
 
       model HydraulicCylinder
@@ -529,7 +529,7 @@ package PJlib
         flange.f = -A * inflow.p;
         v = der(flange.s);
         inflow.q = A * v;
-        annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Line(points=  {{60,60},{-90,60},{-90,-60},{60,-60}}, color=  {0,0,0}),Line(points=  {{20,60},{20,-60}}, color=  {0,0,0}),Line(points=  {{-50,100},{-50,60}}, color=  {0,0,0}),Line(points=  {{20,0},{100,0}}, color=  {0,0,0}),Rectangle(extent=  {{-90,-60},{20,60}}, lineColor=  {0,0,0}, fillColor=  {83,233,255},
+        annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Line(points=  {{60,60},{-90,60},{-90,-60},{60,-60}}),Line(points=  {{20,60},{20,-60}}),Line(points=  {{-50,100},{-50,60}}),Line(points=  {{20,0},{100,0}}),Rectangle(extent=  {{-90,-60},{20,60}}, lineColor=  {0,0,0}, fillColor=  {83,233,255},
                   fillPattern=                                                                                                    FillPattern.Solid)}));
       end HydraulicCylinder;
 
@@ -549,7 +549,7 @@ package PJlib
                   fillPattern=                                                                                                    FillPattern.None,
                   lineThickness=                                                                                                    0.25, extent=  {{-50,-50},{50,50}}),Polygon(points=  {{12,25},{50,0},{12,-25},{12,25}}, lineColor=  {0,0,0}, fillColor=  {0,0,128}, pattern=  LinePattern.Solid,
                   fillPattern=                                                                                                    FillPattern.Solid,
-                  lineThickness=                                                                                                    0.25),Rectangle(lineColor=  {0,0,0}, extent=  {{-100,-100},{100,100}}),Line(points=  {{-100,0},{-50,0}}, color=  {0,0,0}, pattern=  LinePattern.Solid, thickness=  0.25),Line(points=  {{50,0},{100,0}}, color=  {0,0,0}, pattern=  LinePattern.Solid, thickness=  0.25)}));
+                  lineThickness=                                                                                                    0.25),Rectangle(lineColor=  {0,0,0}, extent=  {{-100,-100},{100,100}}),Line(points=  {{-100,0},{-50,0}}, pattern=  LinePattern.Solid, thickness=  0.25),Line(points=  {{50,0},{100,0}}, pattern=  LinePattern.Solid, thickness=  0.25)}));
       end Pumpe;
 
       model CompressibleCylinder
@@ -568,7 +568,7 @@ package PJlib
         piston.f = -A * (p - pa);
         der(p) = if p <= 0 then 0 else K / (V0 + A * s) * (inflow.q - A * v);
         der(s) = v;
-        annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Line(points=  {{60,60},{-90,60},{-90,-60},{60,-60}}, color=  {0,0,0}),Line(points=  {{20,60},{20,-60}}, color=  {0,0,0}),Line(points=  {{-50,100},{-50,60}}, color=  {0,0,0}),Line(points=  {{20,0},{100,0}}, color=  {0,0,0}),Rectangle(extent=  {{-100,-100},{100,100}}, lineColor=  {0,0,0}),Rectangle(extent=  {{-90,-60},{20,60}}, lineColor=  {0,0,0}, fillColor=  {83,233,255},
+        annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Line(points=  {{60,60},{-90,60},{-90,-60},{60,-60}}),Line(points=  {{20,60},{20,-60}}),Line(points=  {{-50,100},{-50,60}}),Line(points=  {{20,0},{100,0}}),Rectangle(extent=  {{-100,-100},{100,100}}, lineColor=  {0,0,0}),Rectangle(extent=  {{-90,-60},{20,60}}, lineColor=  {0,0,0}, fillColor=  {83,233,255},
                   fillPattern=                                                                                                    FillPattern.Solid)}));
       end CompressibleCylinder;
 
@@ -581,7 +581,7 @@ package PJlib
       equation
         outflow.q + inflow.q = 0;
         inflow.p = outflow.p + rho / 2 * (inflow.q / (alpha * A)) ^ 2 * sign(inflow.q);
-        annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent=  {{-100,-100},{100,100}}, lineColor=  {0,0,0}),Line(points=  {{-100,0},{100,0}}, color=  {0,0,0}),Line(points=  {{-80,40},{-50,20},{-20,10},{20,10},{50,20},{80,40}}, color=  {0,0,0}),Line(points=  {{-80,-40},{-50,-20},{-20,-10},{20,-10},{50,-20},{80,-40}}, color=  {0,0,0})}));
+        annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent=  {{-100,-100},{100,100}}, lineColor=  {0,0,0}),Line(points=  {{-100,0},{100,0}}),Line(points=  {{-80,40},{-50,20},{-20,10},{20,10},{50,20},{80,40}}),Line(points=  {{-80,-40},{-50,-20},{-20,-10},{20,-10},{50,-20},{80,-40}})}));
       end Valve;
     end Components;
   end Hydraulik;
@@ -1076,17 +1076,14 @@ package PJlib
               31.0984},{-31.3752,31.0984},{-30.3686,31.0984}}));
       connect(pre1.y, not1.u) annotation (Line(
           points={{-76.5689,31.0984},{-69.7409,31.0984}},
-          color={255,0,255},
-          smooth=Smooth.None));
+          color={255,0,255}));
       connect(pre1.u, realtoboolean1.y) annotation (Line(
           points={{-104.169,31.0984},{-110,31.0984},{-110,64},{88,64},{88,31.0984},
               {78.2585,31.0984}},
-          color={255,0,255},
-          smooth=Smooth.None));
+          color={255,0,255}));
       connect(realtoboolean1.y, y) annotation (Line(
           points={{78.2585,31.0984},{88,31.0984},{88,50},{108,50}},
-          color={255,0,255},
-          smooth=Smooth.None));
+          color={255,0,255}));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent=  {{-100,-100},{100,100}}),Text(extent=  {{50,35},{80,75}}, textString=  "Q", fontName=  "Times New Roman"),Line(points=  {{-100,-30},{-60,0},{-100,30}})}));
     end ToggleFF;
 
@@ -1209,16 +1206,13 @@ package PJlib
               100},{0,81.1732},{-2.22045e-16,81.1732}}));
       connect(triggeredSamplerPre.trigger, fallingedge1.y) annotation (Line(
           points={{0,11.8},{0,18.195}},
-          color={255,0,255},
-          smooth=Smooth.None));
+          color={255,0,255}));
       connect(u, triggeredSamplerPre.u) annotation (Line(
           points={{-100,0},{-12,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(triggeredSamplerPre.y, y) annotation (Line(
           points={{11,0},{100,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent=  {{-100,-100},{100,100}}),Polygon(points=  {{-20,100},{0,60},{20,100},{-20,100}},
                 fillPattern=                                                                                                    FillPattern.Solid),Text(extent=  {{-80,-40},{80,40}}, textString=  "1 / z", fontName=  "Times New Roman")}));
     end TriggeredDelay;
@@ -1377,8 +1371,7 @@ package PJlib
       connect(flange_a,inertia1.flange_a) annotation(Line(points = {{-100,40},{-89.8716,40},{-89.8716,71.612},{-87.0357,71.612},{-87.0357,71.3267}}));
       connect(speedsensor2.v, schlupf1.u) annotation (Line(
           points={{-1.99715,28.7401},{-1.99715,26},{-11.362,26},{-11.362,15.709}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
 
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent=  {{-68,-37},{100,-28}},
                 fillPattern=                                                                                                    FillPattern.Solid),Ellipse(extent=  {{-58,-26},{72,93}},
@@ -1437,12 +1430,10 @@ package PJlib
       connect(firstorder1.y,y) annotation(Line(points = {{-11.3364,-0.285307},{89.0157,-0.285307},{89.0157,0},{100,0}}));
       connect(add1.y, gain.u) annotation (Line(
           points={{36.8434,49.6434},{52,49.6434}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(gain.y, realoutput1) annotation (Line(
           points={{75,49.6434},{100,49.6434}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent=  {{-78,-90},{-56,-45}},
                 fillPattern=                                                                                                    FillPattern.Solid),Rectangle(extent=  {{-78,-45},{36,-22}},
                 fillPattern=                                                                                                    FillPattern.Solid),Rectangle(extent=  {{0,-22},{36,48}},
@@ -1475,28 +1466,22 @@ package PJlib
     equation
       connect(flange_a, speedSensor.flange) annotation (Line(
           points={{-100,46},{-92,46}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(speedSensor.v, greaterEqualThreshold.u) annotation (Line(
           points={{-71,46},{-60,46}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(greaterEqualThreshold.y, pre1.u) annotation (Line(
           points={{-37,46},{-16,46}},
-          color={255,0,255},
-          smooth=Smooth.None));
+          color={255,0,255}));
       connect(u, integrator.u) annotation (Line(
           points={{-108,-40},{-70,-40}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(integrator.y, triggeredSampler.u) annotation (Line(
           points={{-47,-40},{-38,-40}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(greaterEqualThreshold.y, triggeredSampler.trigger) annotation (Line(
           points={{-37,46},{-26,46},{-26,-28.2}},
-          color={255,0,255},
-          smooth=Smooth.None));
+          color={255,0,255}));
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{40,100}}), graphics={Bitmap(
@@ -1532,8 +1517,7 @@ package PJlib
       connect(body1.frame_a, frame_a1) annotation (Line(
           points={{-83.8034,-0.1339},{-100,-0.1339}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Ellipse(lineColor = {0,0,0}, fillColor = {0,0,255}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.Sphere,
                 lineThickness =                                                                                                   0.25, extent = {{-93.787,67.4556},{34.6154,-62.7219}})}));
@@ -1557,13 +1541,11 @@ package PJlib
       connect(frame_a, bodyCylinder.frame_a) annotation (Line(
           points={{-102,0},{-10,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyCylinder.frame_b, frame_b) annotation (Line(
           points={{10,0},{102,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation ( Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
@@ -1601,21 +1583,13 @@ package PJlib
       connect(revolute1.frame_b,frame_b) annotation(Line(points={{13.1396,
               4.36625e-06},{99.4302,4.36625e-06},{99.4302,0},{100,0}}));
       connect(flange_a, revolute1.support) annotation (Line(
-          points={{-60,100},{-24,100},{-24,12},{-6.06039,12}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-60,100},{-24,100},{-24,12},{-6.06039,12}}));
       connect(flange_b, revolute1.axis) annotation (Line(
-          points={{60,100},{20,100},{20,12},{1.13961,12}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{60,100},{20,100},{20,12},{1.13961,12}}));
       connect(damper1.flange_a, revolute1.support) annotation (Line(
-          points={{-13.1396,35.6125},{-24,35.6125},{-24,12},{-6.06039,12}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-13.1396,35.6125},{-24,35.6125},{-24,12},{-6.06039,12}}));
       connect(damper1.flange_b, revolute1.axis) annotation (Line(
-          points={{10.8604,35.6125},{20,35.6125},{20,12},{1.13961,12}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{10.8604,35.6125},{20,35.6125},{20,12},{1.13961,12}}));
       annotation(                                                             Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true, grid = {2,2}), graphics={  Line(points = {{3,77},{17,75},{30,70},{42,63},{50,56},{59,45},{66,34},{72,21}}),Polygon(
                 fillPattern =                                                                                                   FillPattern.Solid, points = {{64,20},{79,22},{75,-2},{64,20}}),Polygon(fillColor = {40,118,192},
                 fillPattern =                                                                                                   FillPattern.Solid, points = {{43,-20},{83,-52},{69,-73},{29,-41},{43,-20}}),Ellipse(fillColor = {40,118,192},
@@ -1678,8 +1652,7 @@ package PJlib
       connect(bodyBox.frame_a, frame_a) annotation (Line(
           points={{50,-4},{50,0},{100,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent = {{-100,-100},{100,100}}),Rectangle(extent = {{-70,-70},{70,70}},
                 fillPattern =                                                                                                   FillPattern.Solid, fillColor = {68,162,255})}));
     end BodyBox;
@@ -1721,50 +1694,36 @@ package PJlib
       connect(fixed1.frame_b, revoluteM.frame_a) annotation (Line(
           points={{-63.1838,-15.2873},{-54,-15.2873}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revoluteM.frame_b, link1.frame_a) annotation (Line(
           points={{-34,-15.2873},{-23.396,-15.2873}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(link1.frame_b, revoluteM1.frame_a) annotation (Line(
           points={{0.604,-15.2873},{12,-15.2873}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revoluteM1.frame_b, link2.frame_a) annotation (Line(
           points={{32,-15.2873},{39.8519,-15.2873}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(torque22.flange_a, revoluteM1.flange_a) annotation (Line(
-          points={{7.0883,18.4615},{7.0883,14.5185},{16,14.5185},{16,-5.2873}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{7.0883,18.4615},{7.0883,14.5185},{16,14.5185},{16,-5.2873}}));
 
       connect(torque22.flange_b, revoluteM1.flange_b) annotation (Line(
-          points={{31.0883,18.4615},{31.0883,14.5185},{28,14.5185},{28,-5.2873}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{31.0883,18.4615},{31.0883,14.5185},{28,14.5185},{28,-5.2873}}));
 
       connect(u2, torque22.tau) annotation (Line(
           points={{-104,40},{19.0883,40},{19.0883,23.2615}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(u1, torque21.tau) annotation (Line(
           points={{-104,-40},{-86,-40},{-86,32},{-45.584,32},{-45.584,23.2615}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
 
       connect(torque21.flange_a, revoluteM.flange_a) annotation (Line(
-          points={{-57.584,18.4615},{-57.584,14},{-50,14},{-50,-5.2873}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-57.584,18.4615},{-57.584,14},{-50,14},{-50,-5.2873}}));
       connect(torque21.flange_b, revoluteM.flange_b) annotation (Line(
-          points={{-33.584,18.4615},{-33.584,14},{-38,14},{-38,-5.2873}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-33.584,18.4615},{-33.584,14},{-38,14},{-38,-5.2873}}));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent = {{-100,-100},{100,100}}),Rectangle(extent = {{-65,-85},{70,-80}},
                 fillPattern =                                                                                                   FillPattern.Solid),Polygon(points = {{-50,-80},{-41,-83},{-13,15},{-21,20}},
                 fillPattern =                                                                                                   FillPattern.Solid),Polygon(points = {{-20,23},{-12,17},{59,59},{54,67}},
@@ -1822,66 +1781,45 @@ package PJlib
       connect(fixed1.frame_b, revoluteM.frame_a) annotation (Line(
           points={{-44.6809,-1.29431},{-28,-1.29431}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revoluteM.frame_b, link1.frame_a) annotation (Line(
           points={{-8,-1.29431},{-2,-1.29431},{-2,-1.29432},{4.1902,-1.29432}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(torque21.flange_a, revoluteM.flange_a) annotation (Line(
           points={{-30.6456,79.6445},{-30.6456,70},{-36,70},{-36,16},{-24,16},{
-              -24,8.70568}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              -24,8.70568}}));
 
       connect(torque21.flange_b, revoluteM.flange_b) annotation (Line(
           points={{-6.6456,79.6445},{-6.6456,70},{-2,70},{-2,16},{-12,16},{-12,
-              8.70568}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              8.70568}}));
 
       connect(relanglesensor1.flange_a, revoluteM.flange_a) annotation (Line(
-          points={{-31.6625,54.046},{-36,54.046},{-36,16},{-24,16},{-24,8.70568}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-31.6625,54.046},{-36,54.046},{-36,16},{-24,16},{-24,8.70568}}));
       connect(relanglesensor1.flange_b, revoluteM.flange_b) annotation (Line(
-          points={{-7.6625,54.046},{-2,54.046},{-2,16},{-12,16},{-12,8.70568}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-7.6625,54.046},{-2,54.046},{-2,16},{-12,16},{-12,8.70568}}));
       connect(link1.frame_b, revoluteM1.frame_a) annotation (Line(
           points={{28.1902,-1.29432},{34.0951,-1.29432},{34.0951,-1.29431},{40,
               -1.29431}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revoluteM1.frame_b, link2.frame_a) annotation (Line(
           points={{60,-1.29431},{64,-1.29431},{64,-1.29432},{67.4381,-1.29432}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relanglesensor2.phi_rel, y2) annotation (Line(
           points={{50,37.9274},{50,28},{34,28},{34,-76},{40,-76},{40,-100}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(torque22.flange_a, revoluteM1.flange_a) annotation (Line(
-          points={{38,78.22},{38,74},{30,74},{30,16},{44,16},{44,8.70568}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{38,78.22},{38,74},{30,74},{30,16},{44,16},{44,8.70568}}));
       connect(torque22.flange_b, revoluteM1.flange_b) annotation (Line(
-          points={{62,78.22},{62,72},{68,72},{68,16},{56,16},{56,8.70568}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{62,78.22},{62,72},{68,72},{68,16},{56,16},{56,8.70568}}));
       connect(relanglesensor2.flange_b, revoluteM1.flange_b) annotation (Line(
           points={{62,51.1274},{66,51.1274},{66,50},{68,50},{68,16},{56,16},{56,
-              8.70568}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              8.70568}}));
       connect(relanglesensor2.flange_a, revoluteM1.flange_a) annotation (Line(
           points={{38,51.1274},{34,51.1274},{34,52},{30,52},{30,16},{44,16},{44,
-              8.70568}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              8.70568}}));
       annotation(Icon(graphics={  Rectangle(lineColor = {0,0,0}, fillColor = {0,0,0}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.None,
                 lineThickness =                                                                                                   0.25, extent = {{-100,-100},{100,100}}),Rectangle(lineColor = {0,0,0}, fillColor = {0,0,0}, pattern = LinePattern.Solid,
@@ -1991,7 +1929,7 @@ package PJlib
       connect(prismatic1.frame_b,frame_b) annotation(Line(points = {{11.4302,-19.3732},{62.6781,-19.3732},{62.6781,1.7094},{100,1.7094},{100,0}}));
       connect(frame_a,springdamper1.frame_a) annotation(Line(points = {{-100,0},{-64.3875,0},{-64.3875,20.7977},{-12.2849,20.7977},{-12.2849,21.0826}}));
       connect(springdamper1.frame_b,frame_b) annotation(Line(points = {{11.7151,21.0826},{62.6781,21.0826},{62.6781,1.7094},{100,1.7094},{100,0}}));
-      annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Line(points = {{-80,32},{-58,32},{-48,2},{-28,62},{-8,2},{12,62},{32,2},{52,62},{62,32},{80,32}}),Line(points = {{70,-28},{-50,-28},{-50,-72},{70,-72}}),Line(points = {{-30,-50},{80,-50}}, color = {0,0,0}),Line(points = {{-80,-50},{-50,-50}}, color = {0,0,0}),Line(points = {{-80,32},{-80,-50}}, color = {0,0,0}),Line(points = {{80,32},{80,-50}}, color = {0,0,0}),Line(points = {{-96,0},{-80,0}}, color = {0,0,0}),Line(points = {{96,0},{80,0}}, color = {0,0,0})}));
+      annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Line(points = {{-80,32},{-58,32},{-48,2},{-28,62},{-8,2},{12,62},{32,2},{52,62},{62,32},{80,32}}),Line(points = {{70,-28},{-50,-28},{-50,-72},{70,-72}}),Line(points = {{-30,-50},{80,-50}}),Line(points = {{-80,-50},{-50,-50}}),Line(points = {{-80,32},{-80,-50}}),Line(points = {{80,32},{80,-50}}),Line(points = {{-96,0},{-80,0}}),Line(points = {{96,0},{80,0}})}));
     end Feder1;
 
     model Karosserie1
@@ -2027,24 +1965,20 @@ package PJlib
          Line(
           points={{53.2422,65.2422},{-46.9744,65.2422}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedtranslation3.frame_a, fvl) annotation (Line(
           points={{-70.9744,65.2422},{-100,65.2422}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedtranslation2.frame_a, fixedtranslation4.frame_b) annotation (
          Line(
           points={{60.6496,-65.5271},{-53.812,-65.5271}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedtranslation4.frame_a, fhl) annotation (Line(
           points={{-77.812,-65.5271},{-100,-65.5271}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent = {{-100,-100},{100,100}}),Text(extent = {{-90,50},{-70,80}}, textString = "vl", fontName = "Times New Roman"),Text(extent = {{70,50},{90,80}}, textString = "vr", fontName = "Times New Roman"),Text(extent = {{-90,-80},{-70,-50}}, textString = "hl", fontName = "Times New Roman"),Text(extent = {{70,-80},{90,-50}}, textString = "hr", fontName = "Times New Roman")}));
     end Karosserie1;
 
@@ -2094,25 +2028,21 @@ package PJlib
       connect(fixedtranslation4.frame_a, fhl) annotation (Line(
           points={{-73.812,-65.5271},{-100,-65.5271}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedtranslation2.frame_a, fixedtranslation4.frame_b) annotation (
          Line(
           points={{60.6496,-65.5271},{-49.812,-65.5271}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedtranslation1.frame_a, fixedtranslation3.frame_b) annotation (
          Line(
           points={{53.2422,65.2422},{-46.9744,65.2422}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedtranslation3.frame_a, fvl) annotation (Line(
           points={{-70.9744,65.2422},{-100,65.2422}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent = {{-100,-100},{100,100}}),Text(extent = {{-90,50},{-70,80}}, textString = "vl", fontName = "Times New Roman"),Text(extent = {{70,50},{90,80}}, textString = "vr", fontName = "Times New Roman"),Text(extent = {{-90,-80},{-70,-50}}, textString = "hl", fontName = "Times New Roman"),Text(extent = {{70,-80},{90,-50}}, textString = "hr", fontName = "Times New Roman")}));
     end Karosserie2;
 
@@ -2182,11 +2112,10 @@ package PJlib
       connect(fixedShape.frame_a, frame_b) annotation (Line(
           points={{42,76},{0,76},{0,100}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation(Icon(graphics={  Rectangle(lineColor = {0,0,0}, fillColor = {0,0,0}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.None,
-                lineThickness =                                                                                                   0.25, extent = {{-100,-100},{100,100}}),Line(points = {{0,20},{0,80}}, color = {0,0,0}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-10,30},{0,20},{10,30}}, color = {0,0,0}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-10,70},{0,80},{10,70}}, color = {0,0,0}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-100,-100},{-90,-80},{-70,-50},{-30,-15},{0,-10},{30,-15},{70,-50},{90,-80},{100,-100}}, color = {0,0,0}, pattern = LinePattern.Solid, thickness = 0.25)}));
+                lineThickness =                                                                                                   0.25, extent = {{-100,-100},{100,100}}),Line(points = {{0,20},{0,80}}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-10,30},{0,20},{10,30}}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-10,70},{0,80},{10,70}}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-100,-100},{-90,-80},{-70,-50},{-30,-15},{0,-10},{30,-15},{70,-50},{90,-80},{100,-100}}, pattern = LinePattern.Solid, thickness = 0.25)}));
     end Strasse2;
 
     model Strasse
@@ -2225,11 +2154,10 @@ package PJlib
       connect(fixedShape.frame_a, frame_b) annotation (Line(
           points={{30,76},{0,76},{0,100}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation(Icon(graphics={  Rectangle(lineColor = {0,0,0}, fillColor = {0,0,0}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.None,
-                lineThickness =                                                                                                   0.25, extent = {{-100,-100},{100,100}}),Line(points = {{0,20},{0,80}}, color = {0,0,0}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-10,30},{0,20},{10,30}}, color = {0,0,0}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-10,70},{0,80},{10,70}}, color = {0,0,0}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-100,-100},{-90,-80},{-70,-50},{-30,-15},{0,-10},{30,-15},{70,-50},{90,-80},{100,-100}}, color = {0,0,0}, pattern = LinePattern.Solid, thickness = 0.25)}));
+                lineThickness =                                                                                                   0.25, extent = {{-100,-100},{100,100}}),Line(points = {{0,20},{0,80}}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-10,30},{0,20},{10,30}}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-10,70},{0,80},{10,70}}, pattern = LinePattern.Solid, thickness = 0.25),Line(points = {{-100,-100},{-90,-80},{-70,-50},{-30,-15},{0,-10},{30,-15},{70,-50},{90,-80},{100,-100}}, pattern = LinePattern.Solid, thickness = 0.25)}));
     end Strasse;
 
     model TestStrasse
@@ -2272,12 +2200,10 @@ package PJlib
       connect(sine1.y,y1) annotation(Line(points = {{7.21709,75.7835},{96.2963,75.7835},{96.2963,76.3533},{105,76.3533}}));
       connect(firstOrder.y, y2) annotation (Line(
           points={{57,27.0655},{105,27.0655}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(firstOrder.u, sine2.y) annotation (Line(
           points={{34,27.0655},{6.36239,27.0655}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent = {{-100,-100},{100,100}})}));
     end TestStrasse;
 
@@ -2295,7 +2221,7 @@ package PJlib
     equation
       connect(springdamper1.frame_b,frame_b) annotation(Line(points = {{-27.6011,-0.284922},{62.6781,-0.284922},{62.6781,-0.284902},{100,-0.284902},{100,0}}));
       connect(frame_a,springdamper1.frame_a) annotation(Line(points = {{-100,0},{-64.3875,0},{-64.3875,-0.0000199158},{-51.6011,-0.0000199158},{-51.6011,-0.284922}}));
-      annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Line(points = {{-80,32},{-58,32},{-48,2},{-28,62},{-8,2},{12,62},{32,2},{52,62},{62,32},{80,32}}),Line(points = {{70,-28},{-50,-28},{-50,-72},{70,-72}}),Line(points = {{-30,-50},{80,-50}}, color = {0,0,0}),Line(points = {{-80,-50},{-50,-50}}, color = {0,0,0}),Line(points = {{-80,32},{-80,-50}}, color = {0,0,0}),Line(points = {{80,32},{80,-50}}, color = {0,0,0}),Line(points = {{-96,0},{-80,0}}, color = {0,0,0}),Line(points = {{96,0},{80,0}}, color = {0,0,0})}));
+      annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Line(points = {{-80,32},{-58,32},{-48,2},{-28,62},{-8,2},{12,62},{32,2},{52,62},{62,32},{80,32}}),Line(points = {{70,-28},{-50,-28},{-50,-72},{70,-72}}),Line(points = {{-30,-50},{80,-50}}),Line(points = {{-80,-50},{-50,-50}}),Line(points = {{-80,32},{-80,-50}}),Line(points = {{80,32},{80,-50}}),Line(points = {{-96,0},{-80,0}}),Line(points = {{96,0},{80,0}})}));
     end Feder;
 
     model Federbein1
@@ -2347,8 +2273,7 @@ package PJlib
               -17.1282},{2.15385,-17.1282},{2.15385,-29.8803},{1.86895,-29.8803}}));
       connect(demultiplex31.y1[1], strasse1.x) annotation (Line(
           points={{-54.2781,-33.7128},{-54.2781,-47.8803},{-10.491,-47.8803}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent = {{-100,-100},{100,100}})}));
     end Federbein1;
 
@@ -2507,14 +2432,12 @@ package PJlib
           points={{-49.7892,-0.2849},{-39.8946,-0.2849},{-39.8946,-0.1339},{
               -29.8034,-0.1339}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedtranslation2.frame_b, frame_a1) annotation (Line(
           points={{-73.7892,-0.2849},{-86.8946,-0.2849},{-86.8946,-0.1339},{
               -100,-0.1339}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Ellipse(lineColor = {0,0,0}, fillColor = {0,0,255}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.Sphere,
                 lineThickness =                                                                                                   0.25, extent = {{-93.787,67.4556},{34.6154,-62.7219}})}));
@@ -2678,8 +2601,7 @@ package PJlib
       connect(multiplex42.y, extractor2.u) annotation (Line(
           points={{52.5162,83.1909},{56.2581,83.1909},{56.2581,82.6211},{
               61.0986,82.6211}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent = {{-100,-80},{100,80}}, fillColor = {204,255,255},
                 fillPattern =                                                                                                   FillPattern.Solid),Rectangle(extent = {{-85,-50},{-15,55}}, fillColor = {255,255,255},
                 fillPattern =                                                                                                   FillPattern.Solid),Rectangle(extent = {{3,27},{19,49}}, fillColor = {255,255,255},
@@ -2772,7 +2694,7 @@ package PJlib
                 fillPattern =                                                                                                   FillPattern.Solid,
                 lineThickness =                                                                                                   0.25, extent = {{31,-39},{47,-17}}),Rectangle(lineColor = {0,0,0}, fillColor = {255,255,255}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.Solid,
-                lineThickness =                                                                                                   0.25, extent = {{59,-39},{75,-17}}),Line(points = {{-83,-20},{-79,19},{-69,32},{-62,32},{-47,-4},{-39,-4},{-20,17},{-17,19}}, color = {0,0,0}, pattern = LinePattern.Solid, thickness = 0.25)}), Diagram);
+                lineThickness =                                                                                                   0.25, extent = {{59,-39},{75,-17}}),Line(points = {{-83,-20},{-79,19},{-69,32},{-62,32},{-47,-4},{-39,-4},{-20,17},{-17,19}}, pattern = LinePattern.Solid, thickness = 0.25)}), Diagram);
     end DieselSteuerung1;
 
     model DieselSteuerung2
@@ -2855,7 +2777,7 @@ package PJlib
                 fillPattern =                                                                                                   FillPattern.Solid,
                 lineThickness =                                                                                                   0.25, extent = {{31,-39},{47,-17}}),Rectangle(lineColor = {0,0,0}, fillColor = {255,255,255}, pattern = LinePattern.Solid,
                 fillPattern =                                                                                                   FillPattern.Solid,
-                lineThickness =                                                                                                   0.25, extent = {{59,-39},{75,-17}}),Line(points = {{-83,-20},{-79,19},{-69,32},{-62,32},{-47,-4},{-39,-4},{-20,17},{-17,19}}, color = {0,0,0}, pattern = LinePattern.Solid, thickness = 0.25)}), Diagram);
+                lineThickness =                                                                                                   0.25, extent = {{59,-39},{75,-17}}),Line(points = {{-83,-20},{-79,19},{-69,32},{-62,32},{-47,-4},{-39,-4},{-20,17},{-17,19}}, pattern = LinePattern.Solid, thickness = 0.25)}), Diagram);
     end DieselSteuerung2;
 
     model Efficiency

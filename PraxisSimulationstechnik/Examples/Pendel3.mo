@@ -13,18 +13,15 @@ equation
   connect(bodyCylinder.frame_b, bodysphere1.frame_a1) annotation (Line(
       points={{16.2,54.1311},{30.8161,54.1311}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(world.frame_b, revoluteM.frame_a) annotation (Line(
       points={{-59.2251,54.1311},{-42,54.1311}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revoluteM.frame_b, bodyCylinder.frame_a) annotation (Line(
       points={{-22,54.1311},{-4.2,54.1311}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation(                        experiment(StartTime = 0.0, StopTime = 10.0, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end Pendel3;

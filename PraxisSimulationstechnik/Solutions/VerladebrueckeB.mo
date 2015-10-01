@@ -37,27 +37,22 @@ equation
   connect(fixedtranslation1.frame_b, revoluteM.frame_b) annotation (Line(
       points={{12,-22.2519},{12,-4}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic1.frame_b, bodyBox.frame_a) annotation (Line(
       points={{-3.2716,28.9959},{36,28.9959}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(worldforce1.frame_b, bodyBox.frame_a) annotation (Line(
       points={{12.1535,45.3398},{12.1535,28.9959},{36,28.9959}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revoluteM.frame_a, bodyBox.frame_a) annotation (Line(
       points={{12,16},{12,28.9959},{36,28.9959}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(bodyBox1.frame_a, fixedtranslation1.frame_a) annotation (Line(
       points={{12,-55.0041},{12,-46.2519}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation(experiment(StartTime = 0.0, StopTime = 20.0, Tolerance = 0.000001),    uses(Modelica(version="3.2.1")));
 end VerladebrueckeB;

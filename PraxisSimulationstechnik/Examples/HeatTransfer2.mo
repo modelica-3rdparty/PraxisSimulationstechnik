@@ -120,13 +120,11 @@ equation
           91.103},{-54.3749,77.8892},{-28.3749,77.8892}}));
   connect(thermalconductor10.port_b, convection8.solid) annotation (Line(
       points={{-137.432,-8},{-137.432,-14.864}},
-      color={191,0,0},
-      smooth=Smooth.None));
+      color={191,0,0}));
   connect(thermalconductor8.port_b, convection1.solid) annotation (Line(
       points={{-80,77.8892},{-68,77.8892},{-68,78},{-54,78},{-54.3749,59.8708},
           {-54.8749,59.8708},{-54.8749,53.0662}},
-      color={191,0,0},
-      smooth=Smooth.None));
+      color={191,0,0}));
   annotation(                        experiment(StartTime = 0.0, StopTime = 30.0, Tolerance = 1e-06),
     uses(Modelica(version="3.2.1")));
 end HeatTransfer2;

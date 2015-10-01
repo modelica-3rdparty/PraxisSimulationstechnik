@@ -47,80 +47,58 @@ equation
   connect(springdamper3.flange_a, differentialgetriebe1.flange_b) annotation (
       Line(
       points={{-24.2825,0.8218},{-32.1412,0.8218},{-32.1412,-4.19425},{-40.9065,
-          -4.19425}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -4.19425}}));
   connect(springdamper2.flange_a, differentialgetriebe1.flange_b1) annotation (
       Line(
       points={{-24.2825,-19.9856},{-32.1412,-19.9856},{-32.1412,-10.1943},{
-          -40.9065,-10.1943}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -40.9065,-10.1943}}));
 
   connect(kupplung1.flange_b, schaltgetriebe5_1.flange_a) annotation (Line(
-      points={{-25.9424,29.3526},{-19.9712,29.3526},{-19.9712,29},{-14,29}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-25.9424,29.3526},{-19.9712,29.3526},{-19.9712,29},{-14,29}}));
   connect(schaltgetriebe5_1.flange_b, springdamper1.flange_a) annotation (Line(
       points={{1.55431e-15,29},{8,29},{8,16},{-78,16},{-78,-7.17818},{-74.2825,
-          -7.17818}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -7.17818}}));
   connect(springdamper2.flange_b, reifen1.flange_a) annotation (Line(
       points={{-12.2825,-19.9856},{-7.14125,-19.9856},{-7.14125,-17.5856},{
-          -2.7626,-17.5856}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -2.7626,-17.5856}}));
   connect(springdamper3.flange_b, reifen2.flange_a) annotation (Line(
       points={{-12.2825,0.8218},{-7.14125,0.8218},{-7.14125,3.2218},{-2.7626,
-          3.2218}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          3.2218}}));
   connect(reifen2.flange_b, karosserie1.flange_a) annotation (Line(
       points={{9.2374,-1.5782},{16.6187,-1.5782},{16.6187,-13.1568},{31.0904,
           -13.1568}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   connect(reifen1.flange_b, karosserie1.flange_a) annotation (Line(
       points={{9.2374,-22.3856},{16.6187,-22.3856},{16.6187,-13.1568},{31.0904,
           -13.1568}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   connect(const1.y, reifen1.u) annotation (Line(
       points={{13.0647,57.5727},{13.0647,-30.2137},{3.2374,-30.2137},{3.2374,
           -25.9856}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(reifen2.u, const1.y) annotation (Line(
       points={{3.2374,-5.1782},{3.2374,-9.5891},{13.0647,-9.5891},{13.0647,
           57.5727}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(fahrer2_1.u, speedsensor1.w) annotation (Line(
       points={{-50,60},{-58,60},{-58,46.6},{-57.2662,46.6}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(fahrer2_1.y, kupplung1.u) annotation (Line(
       points={{-38,60},{-32,60},{-32,35.5926},{-31.9424,35.5926}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(fahrer2_1.realoutput2, schaltgetriebe5_1.u) annotation (Line(
       points={{-38,57},{-6,57},{-6,36},{-7,36}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(fahrer2_1.realoutput1, motor1.u) annotation (Line(
       points={{-38,63},{-34,63},{-34,80},{-74.5324,80},{-74.5324,43.6356}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(verbrauchsmesser.flange_a, karosserie1.flange_a) annotation (Line(
       points={{32,-35.4},{24,-35.4},{24,-22},{16.6187,-22},{16.6187,-13.1568},{
           31.0904,-13.1568}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   connect(verbrauchsmesser.u, motor1.u) annotation (Line(
       points={{31.2,-44},{-92,-44},{-92,80},{-74,80},{-74.5324,43.6356}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation(                        experiment(StopTime=35, Tolerance=1e-06),
     uses(Modelica(version="3.2.1")));
 end Verbrauch;

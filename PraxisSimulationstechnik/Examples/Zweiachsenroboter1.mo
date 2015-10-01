@@ -22,23 +22,19 @@ equation
   connect(world.frame_b, revoluteM.frame_a) annotation (Line(
       points={{-72.6211,14.245},{-58,14.245}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revoluteM.frame_b, link1.frame_a) annotation (Line(
       points={{-38,14.245},{-26.3678,14.245}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(link1.frame_b, revoluteM1.frame_a) annotation (Line(
       points={{-2.3678,14.245},{8,14.245}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revoluteM1.frame_b, link2.frame_a) annotation (Line(
       points={{28,14.245},{39.4368,14.245}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation(experiment(StartTime = 0.0, StopTime = 10.0, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end Zweiachsenroboter1;

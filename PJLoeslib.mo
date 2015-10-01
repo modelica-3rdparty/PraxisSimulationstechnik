@@ -132,7 +132,7 @@ package PJLoeslib
       k = step1.y + step2.y;
       y = k * A;
       annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(lineColor=  {0,0,0},
-                lineThickness=                                                                                                    0.25, extent=  {{-100,100},{100,-100}}),Line(color=  {0,0,0}, thickness=  2.75, points=  {{-80,-80},{-60,-80},{-60,80},{60,80},{60,-80},{80,-80}})}));
+                lineThickness=                                                                                                    0.25, extent=  {{-100,100},{100,-100}}),Line(thickness=  2.75, points=  {{-80,-80},{-60,-80},{-60,80},{60,80},{60,-80},{80,-80}})}));
     end Kraftstoss3d;
 
     model Servomotor
@@ -169,8 +169,7 @@ package PJLoeslib
       connect(emf.support,flange_a) annotation(Line(points = {{11.0769,2.2792},{-0.854701,2.2792},{-0.854701,-99.71510000000001},{0,-99.71510000000001}}));
       connect(resistor1.n, inductor1.p) annotation (Line(
           points={{-33.2991,57.265},{-23.6809,57.265}},
-          color={0,0,255},
-          smooth=Smooth.None));
+          color={0,0,255}));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(lineColor=  {100,100,100}, fillColor=  {100,100,100},
                 fillPattern=                                                                                                    FillPattern.Solid, extent=  {{-10,-90},{10,90}}),Ellipse(extent=  {{-50,-50},{50,50}},
                 fillPattern=                                                                                                    FillPattern.Solid, fillColor=  {255,255,255}),Line(color=  {0,0,255}, points=  {{-95,0},{-53,0}})}));
@@ -213,11 +212,10 @@ package PJLoeslib
       connect(u,signalvoltage1.v) annotation(Line(points = {{-103,0},{-75.7835,0},{-75.7835,0.2849},{-75.6365,0.2849}}));
       connect(resistor1.n, inductor1.p) annotation (Line(
           points={{-31.2991,57.265},{-23.6809,57.265}},
-          color={0,0,255},
-          smooth=Smooth.None));
+          color={0,0,255}));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(lineColor=  {100,100,100}, fillColor=  {100,100,100},
                 fillPattern=                                                                                                    FillPattern.Solid, extent=  {{-10,-90},{10,90}}),Ellipse(extent=  {{-50,-50},{50,50}},
-                fillPattern=                                                                                                    FillPattern.Solid, fillColor=  {255,255,255}),Line(color=  {0,0,0}, points=  {{35,-50},{35,50}}),Line(color=  {0,0,255}, points=  {{-95,0},{-53,0}})}));
+                fillPattern=                                                                                                    FillPattern.Solid, fillColor=  {255,255,255}),Line(points=  {{35,-50},{35,50}}),Line(color=  {0,0,255}, points=  {{-95,0},{-53,0}})}));
     end ServomotorVertical;
 
     model PrismaticM
@@ -246,21 +244,17 @@ package PJLoeslib
       connect(frame_a, prismatic1.frame_a) annotation (Line(
           points={{-102,0},{-8.2165,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic1.axis, flange_a) annotation (Line(
           points={{13.3835,7.2},{13.3835,80},{-40,80},{-40,98}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(prismatic1.support, flange_b) annotation (Line(
           points={{-1.0165,7.2},{-1.0165,60},{40,60},{40,100}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(frame_b, prismatic1.frame_b) annotation (Line(
           points={{102,0},{15.7835,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation ( Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={
@@ -278,9 +272,7 @@ package PJLoeslib
               fillPattern=FillPattern.Solid),
             Line(
               points={{-70,0},{72,0}},
-              color={0,0,0},
               thickness=1,
-              smooth=Smooth.None,
               arrow={Arrow.Filled,Arrow.Filled})}));
     end PrismaticM;
 
@@ -369,68 +361,51 @@ package PJLoeslib
       connect(revolute1.frame_b, link1.frame_a) annotation (Line(
           points={{-44.2783,-2.591},{-34.0493,-2.591}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute1.frame_a, fixed1.frame_b) annotation (Line(
           points={{-68.2783,-2.591},{-78.4188,-2.591}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute1.axis, relanglesensor1.flange_b) annotation (Line(
           points={{-56.2783,9.409},{-56.2783,12},{-34,12},{-34,34.6165},{
-              -41.4004,34.6165}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              -41.4004,34.6165}}));
       connect(revolute1.support, relanglesensor1.flange_a) annotation (Line(
           points={{-63.4783,9.409},{-63.4783,12},{-78,12},{-78,34.6165},{
-              -65.4004,34.6165}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              -65.4004,34.6165}}));
       connect(servomotor1.flange_a, relanglesensor1.flange_a) annotation (Line(
           points={{-64.9978,66.8299},{-78,66.8299},{-78,34.6165},{-65.4004,
-              34.6165}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              34.6165}}));
       connect(servomotor1.flange_b, relanglesensor1.flange_b) annotation (Line(
           points={{-41.032,66.8299},{-34,66.8299},{-34,34.6165},{-41.4004,
-              34.6165}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              34.6165}}));
       connect(frame_b, prismaticM.frame_b) annotation (Line(
           points={{99.4895,-2.591},{88.2,-2.591}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relpositionsensor1.flange_a, prismaticM.flange_a) annotation (
           Line(
           points={{60.1905,36.0953},{56,36.0953},{56,12},{74,12},{74,7.209}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(relpositionsensor1.flange_b, prismaticM.flange_b) annotation (
           Line(
           points={{84.1905,36.0953},{88,36.0953},{88,12},{82,12},{82,7.409}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(servomotorvertical1.flange_a, prismaticM.flange_a) annotation (
           Line(
           points={{60.0698,67.6171},{56,67.6171},{56,12},{74,12},{74,7.209}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(servomotorvertical1.flange_b, prismaticM.flange_b) annotation (
           Line(
           points={{84.0356,67.6171},{88,67.6171},{88,12},{82,12},{82,7.409}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(link2.frame_b, prismaticM.frame_a) annotation (Line(
           points={{54.1558,-2.591},{67.8,-2.591}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodybox1.frame_a, prismaticM.frame_a) annotation (Line(
           points={{60.1078,-20.9126},{60,-2},{61.0779,-2.591},{67.8,-2.591}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent=  {{-100,-100},{100,100}}),Rectangle(extent=  {{-21,-18},{42,-11}},
                 fillPattern=                                                                                                    FillPattern.Solid),Rectangle(extent=  {{39,-5},{46,44}},
                 fillPattern=                                                                                                    FillPattern.Solid),Rectangle(extent=  {{30,41},{55,49}},
@@ -621,7 +596,7 @@ package PJLoeslib
       connect(u,signalvoltage1.v) annotation(Line(points = {{-103,0},{-75.7835,0},{-75.7835,0.2849},{-75.6365,0.2849}}));
       annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(lineColor=  {100,100,100}, fillColor=  {100,100,100},
                 fillPattern=                                                                                                    FillPattern.Solid, extent=  {{-10,-90},{10,90}}),Ellipse(extent=  {{-50,-50},{50,50}},
-                fillPattern=                                                                                                    FillPattern.Solid, fillColor=  {255,255,255}),Line(color=  {0,0,0}, points=  {{35,-50},{35,50}}),Line(color=  {0,0,255}, points=  {{-95,0},{-53,0}})}));
+                fillPattern=                                                                                                    FillPattern.Solid, fillColor=  {255,255,255}),Line(points=  {{35,-50},{35,50}}),Line(color=  {0,0,255}, points=  {{-95,0},{-53,0}})}));
     end ServomotorVerticalL;
 
     model RoboterScaraL
@@ -708,51 +683,40 @@ package PJLoeslib
       connect(frame_b, prismaticM.frame_b) annotation (Line(
           points={{99.4895,-2.591},{86.2,-2.591}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(link2.frame_b, prismaticM.frame_a) annotation (Line(
           points={{54.1558,-3.6811},{60.0779,-3.6811},{60.0779,-2.591},{65.8,
               -2.591}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodybox1.frame_a, prismaticM.frame_a) annotation (Line(
           points={{60.1078,-20.9126},{60.1078,-2.591},{65.8,-2.591}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relpositionsensor1.flange_b, prismaticM.flange_b) annotation (
           Line(
           points={{84.1905,36.0953},{88,36.0953},{88,12},{80,12},{80,7.409}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(relpositionsensor1.flange_a, prismaticM.flange_a) annotation (
           Line(
           points={{60.1905,36.0953},{56,36.0953},{56,12},{72,12},{72,7.209}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(servomotorvertical1.flange_b, prismaticM.flange_a) annotation (
           Line(
           points={{60.0356,67.6171},{56,67.6171},{56,12},{72,12},{72,7.209}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(servomotorvertical1.flange_a, prismaticM.flange_b) annotation (
           Line(
           points={{84.0014,67.6171},{88,67.6171},{88,12},{80,12},{80,7.409}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(servomotor1.flange_a, revolute1.support) annotation (Line(
           points={{-64.9978,66.8299},{-70,66.8299},{-70,34},{-70.6553,34},{
               -70.6553,13.6752},{-61.8234,13.6752},{-61.8234,9.14097},{-61.879,
-              9.14097}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              9.14097}}));
       connect(servomotor1.flange_b, revolute1.axis) annotation (Line(
           points={{-41.032,66.8299},{-36,66.8299},{-36,34},{-36.1823,34.6165},{
               -36.1823,12.8205},{-54.416,12.8205},{-54.416,9.14097},{-54.679,
-              9.14097}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              9.14097}}));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent=  {{-100,-100},{100,100}}),Rectangle(extent=  {{-21,-18},{42,-11}},
                 fillPattern=                                                                                                    FillPattern.Solid),Rectangle(extent=  {{39,-5},{46,44}},
                 fillPattern=                                                                                                    FillPattern.Solid),Rectangle(extent=  {{30,41},{55,49}},
@@ -793,28 +757,23 @@ package PJLoeslib
       connect(frame_a, force1.frame_b) annotation (Line(
           points={{-100,0},{-78,0},{-78,-0.25641},{-32.2621,-0.25641}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(frame_b, force1.frame_a) annotation (Line(
           points={{100,0},{34,0},{34,-0.25641},{-8.2621,-0.25641}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relativeposition1.frame_b, frame_a) annotation (Line(
           points={{-30.1425,59.6581},{-65.0712,59.6581},{-65.0712,0},{-100,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relativeposition1.frame_a, frame_b) annotation (Line(
           points={{-6.1425,59.6581},{45.9288,59.6581},{45.9288,0},{100,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedShape.frame_a, frame_b) annotation (Line(
           points={{14,-34},{58,-34},{58,0},{100,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation(                                                             Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={  Rectangle(extent=  {{-100,-100},{100,100}}),Line(points=  {{-60,0},{-38,0},{-28,-30},{-8,30},{12,-30},{32,30},{52,-30},{72,30},{82,0},{100,0}})}));
     end Reifen;
 
@@ -1036,12 +995,12 @@ package PJLoeslib
 
     model PumpT
       extends TurboMachineT;
-      annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {Ellipse(extent=  {{-100,100},{100,-100}}, lineColor=  {0,0,0}),Line(points=  {{-77,64},{94,34}}, thickness=  1, color=  {0,0,0}),Line(points=  {{-77,-64},{94,-34}}, thickness=  1, color=  {0,0,0})}));
+      annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {Ellipse(extent=  {{-100,100},{100,-100}}, lineColor=  {0,0,0}),Line(points=  {{-77,64},{94,34}}, thickness=  1),Line(points=  {{-77,-64},{94,-34}}, thickness=  1)}));
     end PumpT;
 
     model TurbineT
       extends TurboMachineT;
-      annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {Line(points=  {{-100,40},{100,40},{60,-40},{-60,-40},{-100,40}}, thickness=  1, color=  {0,0,0}),Line(points=  {{0,40},{0,100}}, thickness=  2, color=  {0,0,0}),Line(points=  {{-100,0},{-80,0}}, thickness=  1, color=  {0,0,0}),Line(points=  {{80,0},{100,0}}, thickness=  1, color=  {0,0,0})}));
+      annotation( Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {Line(points=  {{-100,40},{100,40},{60,-40},{-60,-40},{-100,40}}, thickness=  1),Line(points=  {{0,40},{0,100}}, thickness=  2),Line(points=  {{-100,0},{-80,0}}, thickness=  1),Line(points=  {{80,0},{100,0}}, thickness=  1)}));
     end TurbineT;
 
     model HeatExchanger3

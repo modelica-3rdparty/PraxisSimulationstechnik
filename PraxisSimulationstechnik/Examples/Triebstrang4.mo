@@ -36,25 +36,17 @@ equation
   connect(const.y,motor1.u) annotation(Line(points = {{-65.3237,55.5583},{-65.3237,55.5583},{-65.3237,43.6356},{-65.3238,43.6356}}));
   connect(motor1.flange_b,kupplung1.flange_a) annotation(Line(points = {{-57.3238,29.3956},{-42.0144,29.3956},{-42.0144,29.3526},{-46.8633,29.3526}}));
   connect(springdamper2.flange_b, idealrollingwheel1.flangeR) annotation (Line(
-      points={{-15.1654,3.741},{-8.87771,3.741}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-15.1654,3.741},{-8.87771,3.741}}));
   connect(springdamper2.flange_a, differentialgetriebe1.flange_b) annotation (
       Line(
       points={{-27.1654,3.741},{-33.5827,3.741},{-33.5827,-4.19426},{-40.331,
-          -4.19426}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -4.19426}}));
   connect(springdamper3.flange_b, idealrollingwheel2.flangeR) annotation (Line(
-      points={{-15.1654,-18.259},{-8.87771,-18.259}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-15.1654,-18.259},{-8.87771,-18.259}}));
   connect(springdamper3.flange_a, differentialgetriebe1.flange_b1) annotation (
       Line(
       points={{-27.1654,-18.259},{-33.5827,-18.259},{-33.5827,-10.1943},{
-          -40.331,-10.1943}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -40.331,-10.1943}}));
   annotation(                        experiment(StartTime = 0.0, StopTime = 50.0, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end Triebstrang4;

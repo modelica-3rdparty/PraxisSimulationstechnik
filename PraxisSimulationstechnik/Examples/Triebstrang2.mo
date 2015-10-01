@@ -29,24 +29,16 @@ equation
   connect(springdamper1.flange_b,inertia3.flange_a) annotation(Line(points = {{-62.2825,-7.17818},{-54.5989,-7.17818},{-54.5989,-7.67978},{-54.6799,-7.67978}}));
   connect(idealgear1.flange_b,springdamper1.flange_a) annotation(Line(points = {{7.54899,29.2381},{14.9413,29.2381},{14.9413,13.7377},{-77.8748,13.7377},{-77.8748,-7.23938},{-74.2825,-7.23938},{-74.2825,-7.17818}}));
   connect(springdamper2.flange_b, idealrollingwheel1.flangeR) annotation (Line(
-      points={{2.83455,3.74102},{7.2374,3.74102}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{2.83455,3.74102},{7.2374,3.74102}}));
   connect(springdamper2.flange_a, idealgear2.flange_b) annotation (Line(
       points={{-9.16545,3.74102},{-9.99998,3.74102},{-9.99998,4},{-14,4},{-14,
-          -8.12949},{-20.675,-8.12949},{-20.675,-7.67978}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -8.12949},{-20.675,-8.12949},{-20.675,-7.67978}}));
   connect(springdamper3.flange_b, idealrollingwheel2.flangeR) annotation (Line(
       points={{2.8346,-18.259},{4.4173,-18.259},{4.4173,-18.1295},{7.2374,
-          -18.1295}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -18.1295}}));
   connect(springdamper3.flange_a, idealgear2.flange_b) annotation (Line(
       points={{-9.1654,-18.259},{-14.5827,-18.259},{-14.5827,-7.67978},{-20.675,
-          -7.67978}},
-      color={0,0,0},
-      smooth=Smooth.None));
+          -7.67978}}));
   annotation(                        experiment(StartTime = 0.0, StopTime = 25.0, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end Triebstrang2;

@@ -27,23 +27,19 @@ equation
   connect(demultiplex31.y3[1], roboterscara1.u3) annotation (Line(
       points={{-50.5081,57.4437},{-50.5081,48.7219},{-50.2403,48.7219},{
           -50.2403,38.0036}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(demultiplex31.y1[1], roboterscara1.u1) annotation (Line(
       points={{-67.3081,57.4437},{-67.3081,47.7219},{-67.6643,47.7219},{
           -67.6643,38.0036}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(roboterscara1.y3, multiplex31.u3[1]) annotation (Line(
       points={{-50.2403,7.5116},{-50.2403,0.7558},{-50.508,0.7558},{-50.508,
           -7.4391}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(roboterscara1.y1, multiplex31.u1[1]) annotation (Line(
       points={{-67.6643,7.5116},{-67.6643,0.7558},{-67.308,0.7558},{-67.308,
           -7.4391}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation(experiment(StartTime = 0.0, StopTime = 2, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end ScaraA;

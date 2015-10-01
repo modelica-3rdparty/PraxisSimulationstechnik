@@ -33,8 +33,7 @@ equation
       points={{78.4426,28.4483},{82.2213,28.4483},{82.2213,28.2665},{86.242,
           28.2665}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation(experiment(
       StopTime=10,
       Intervals=2000,

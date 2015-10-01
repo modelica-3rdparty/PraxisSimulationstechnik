@@ -45,8 +45,7 @@ equation
       Line(
       points={{46,-10},{46,3.2299},{45.4023,3.2299}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation(experiment(StartTime = 0.0, StopTime = 6, Tolerance = 0.000001),
     uses(Modelica(version="3.2.1")));
 end Trebuchet2B;
